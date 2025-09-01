@@ -87,7 +87,7 @@ vim.keymap.set("n", "<C-n>", ":w %:h/", opts)
 -- delete backward
 -- w{number}db
 
-vim.keymap.set("n", "<C-P>", ':lua require("config.utils").toggle_go_test()<CR>', opts)
+-- vim.keymap.set("n", "<C-P>", ':lua require("config.utils").toggle_go_test()<CR>', opts)
 
 -- Get highlighted line numbers in visual mode
 vim.keymap.set("v", "<leader>ln", ':lua require("config.utils").get_highlighted_line_numbers()<CR>', opts)
@@ -95,5 +95,60 @@ vim.keymap.set("v", "<leader>ln", ':lua require("config.utils").get_highlighted_
 vim.keymap.set('n', '<leader>rl', function()
   vim.cmd('w')
   vim.cmd('SlimeSendCurrentLine')
-end, { desc = 'Send current line to REPL' })
+end, { desc = '[Slime] [l]ine: Send current line to REPL' })
 
+vim.keymap.set('n', '<leader>L', ':cd %:h<CR>', {
+  desc = '[L]ocate file in system'
+})
+
+-- This file defines a Lua function to open a terminal and initialize tmux.
+
+-- The function that will be called by the keymap.
+local function open_tmux_terminal()
+  -- The command to open a terminal and run the 'tmux' command.
+  -- `:terminal` opens a new terminal in a horizontal split.
+  local cmd_string = 'terminal tmux'
+  
+  -- We use vim.cmd() to execute the command directly.
+  vim.cmd(cmd_string)
+end
+
+-- This file defines a Lua function to open a vertical split terminal and then initialize a Tmux session within it.
+
+-- The function that will be called by the keymap.
+local function open_tmux_vsplit()
+  -- The command to open a terminal in a vertical split (`vsplit`)
+  -- and then run the tmux command.
+  -- `tmux attach || tmux new-session` will attach to an existing session
+  -- or create a new one if none exists.
+  local cmd_string = 'vsplit | terminal tmux attach || tmux new-session'
+  
+  -- We use vim.cmd() to execute the command directly.
+  vim.cmd(cmd_string)
+end
+
+-- Set up the keymap.
+vim.keymap.set('n', '<leader>T', open_tmux_vsplit, {
+  desc = 'Windowed Tmux'
+})
+
+-- Optional: You can also create a keymap for opening a new session.
+--[[ vim.keymap.set('n', '<leader>T', function()
+  vim.cmd('terminal tmux new-session')
+end, {
+  desc = 'Windowed Tmux'
+}) ]]
+
+-- New keymap to open a vsplit terminal, start tmux, and run Julia.
+local function open_julia_terminal()
+  local cmd_string = 'vsplit | terminal tmux new-session -A -s julia_session'
+  vim.cmd(cmd_string)
+end
+vim.keymap.set('n', '<leader>J', open_julia_terminal, {
+  desc = 'Open Julia in a vertical split terminal with tmux'
+})
+
+
+
+-- Save the current file using <leader> w
+vim.keymap.set('n', '<leader>w', ':w<CR>', { desc = 'Save file' })

@@ -12,7 +12,7 @@ return {
       local filename = {
         'filename',
         file_status = true, -- displays file status (readonly status, modified status)
-        path = 0, -- 0 = just filename, 1 = relative path, 2 = absolute path
+        path = 2, -- 0 = just filename, 1 = relative path, 2 = absolute path
       }
 
       local hide_in_width = function()
@@ -32,34 +32,34 @@ return {
 
       local diff = {
         'diff',
-        colored = false,
+        colored = true,
         symbols = { added = ' ', modified = ' ', removed = ' ' }, -- changes diff symbols
         cond = hide_in_width,
       }
       local my_custom_theme = {
         normal = {
           a = { fg = '#2c2c2c', bg = '#ff6000', gui = 'bold' },
-          b = { fg = '#ff6000', bg = '#2c2c2c' , blend = 60 },
-          c = { fg = '#2b2b2b', bg = '#80401a' },
+          b = { fg = '#2b2b2b', bg = '#80401a' },
+          c = { fg = '#ff6000', bg = 'none' },
         },
         insert = {
           a = { fg = '#2c2c2c', bg = '#ff6000', gui = 'bold' },
-          b = { fg = '#ff6000', bg = '#2c2c2c' , blend = 60 },
-          c = { fg = '#2b2b2b', bg = '#80401a' },
+          b = { fg = '#2b2b2b', bg = '#80401a' },
+          c = { fg = '#ff6000', bg = 'none' },
         },
         visual = {
           a = { fg = '#2c2c2c', bg = '#ff6000', gui = 'bold' },
-          b = { fg = '#ff6000', bg = '#2c2c2c' , blend = 60 },
-          c = { fg = '#2b2b2b', bg = '#80401a' },
+          b = { fg = '#2b2b2b', bg = '#80401a' },
+          c = { fg = '#ff6000', bg = 'none' },
         },
         replace = {
           a = { fg = '#2c2c2c', bg = '#ff6000', gui = 'bold' },
-          b = { fg = '#ff6000', bg = '#2c2c2c' , blend = 60 },
-          c = { fg = '#2b2b2b', bg = '#80401a' },
+          b = { fg = '#2b2b2b', bg = '#80401a' },
+          c = { fg = '#ff6000', bg = 'none' },
         },
         inactive = {
           a = { fg = '#ff6000', bg = '#80401a', gui = 'bold' },
-          b = { fg = '#ff6000', bg = '#2b2b2b' },
+          b = { fg = '#ff6000', bg = '#80401a' },
           c = { fg = '#ff6000', bg = '#80401a' },
         },
       }
@@ -73,7 +73,7 @@ return {
           --        
           section_separators = { left = '', right = '' },
           component_separators = { left = '', right = '' },
-          disabled_filetypes = { 'alpha', 'neo-tree'},
+          disabled_filetypes = { 'alpha', 'neo-tree', 'explorer'},
           always_divide_middle = true,
         },
         sections = {

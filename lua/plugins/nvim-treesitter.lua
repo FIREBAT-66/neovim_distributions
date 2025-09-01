@@ -21,6 +21,7 @@ return {
                     "bash",
                     "c",
                     "html",
+                    "julia",
                     "javascript",
                     "json",
                     "lua",
