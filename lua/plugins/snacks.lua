@@ -60,13 +60,13 @@ return {
       end,
       desc = "Search Notifications",
     },
-    {
+    --[[ {
       "<leader>e",
       function()
         Snacks.explorer()
       end,
       desc = "File Explorer",
-    },
+    }, ]]
     -- find
     {
       "<leader>o",

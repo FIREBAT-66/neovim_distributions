@@ -127,17 +127,16 @@ local function open_tmux_vsplit()
   vim.cmd(cmd_string)
 end
 
--- Set up the keymap.
-vim.keymap.set('n', '<leader>T', open_tmux_vsplit, {
-  desc = 'Windowed Tmux'
-})
-
--- Optional: You can also create a keymap for opening a new session.
---[[ vim.keymap.set('n', '<leader>T', function()
-  vim.cmd('terminal tmux new-session')
-end, {
+--[[ vim.keymap.set('n', '<leader>T', open_tmux_vsplit, {
   desc = 'Windowed Tmux'
 }) ]]
+
+-- Opens a vsplit terminal
+vim.keymap.set('n', '<leader>T', function()
+  vim.cmd('vsplit | terminal')
+end, {
+  desc = 'Windowed Tmux'
+})
 
 -- New keymap to open a vsplit terminal, start tmux, and run Julia.
 local function open_julia_terminal()
@@ -152,3 +151,35 @@ vim.keymap.set('n', '<leader>J', open_julia_terminal, {
 
 -- Save the current file using <leader> w
 vim.keymap.set('n', '<leader>w', ':w<CR>', { desc = 'Save file' })
+
+-- Send motion (paragraph) to Slime, and move the cursor to the end of the paragraph
+vim.keymap.set('n', '<leader>rr', '<Plug>SlimeMotionSend}}', {
+    silent = true,
+    desc = 'Slime: Send Current Paragraph'
+})
+
+
+
+-- Smart expand/init
+vim.keymap.set({'n', 'v'}, '<CR>', function()
+  local mode = vim.fn.mode()
+  if mode == 'n' then
+    vim.cmd("lua require'nvim-treesitter.incremental_selection'.init_selection()")
+  else
+    vim.cmd("lua require'nvim-treesitter.incremental_selection'.node_incremental()")
+  end
+end, { desc = 'Init or expand Treesitter selection' })
+
+-- Shrink
+vim.keymap.set('v', '<BS>', function()
+  vim.cmd("lua require'nvim-treesitter.incremental_selection'.node_decremental()")
+end, { desc = 'Shrink Treesitter selection' })
+
+-- Open broot in a terminal
+local function open_broot()
+  local cmd_string = 'terminal broot' 
+  vim.cmd('cd %:h')
+  vim.cmd(cmd_string)
+  vim.cmd('startinsert')
+end
+vim.keymap.set('n', '<leader>e', open_broot, { desc = 'test termial' })
