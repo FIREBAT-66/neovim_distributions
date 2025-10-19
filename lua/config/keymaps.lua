@@ -177,9 +177,19 @@ end, { desc = 'Shrink Treesitter selection' })
 
 -- Open broot in a terminal
 local function open_broot()
-  local cmd_string = 'terminal broot' 
+  local cmd_string = 'terminal broot'
+  
+  -- Change directory to the current file's directory (assuming this is desired)
   vim.cmd('cd %:h')
-  vim.cmd(cmd_string)
+  
+  -- Use pcall to execute the main command and check for errors
+  local status, _ = pcall(vim.cmd, cmd_string)
+  -- If status is false, an error occurred, so run the fallback command
+  if not status then
+    vim.cmd('terminal broot ~')
+  end
+
+  -- This command runs regardless of the success of the terminal broot command
   vim.cmd('startinsert')
 end
-vim.keymap.set('n', '<leader>e', open_broot, { desc = 'test termial' })
+vim.keymap.set('n', '<leader>e', open_broot, { desc = 'open broot' })

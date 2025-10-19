@@ -1,0 +1,2387 @@
+11:13:42.134 [INFO] cli_log::init: Starting broot v1.51.0 with log level DEBUG
+11:13:42.134 [DEBUG] broot: env::args(): [
+    "broot",
+]
+11:13:42.134 [INFO] broot::shell_install: Shell installation state: UpToDate
+11:13:42.134 [DEBUG] broot::conf::conf: reading conf file: "/home/wytchfyre/.config/broot/conf.hjson"
+11:13:42.135 [DEBUG] broot::conf::conf: reading conf file: "/home/wytchfyre/.config/broot/verbs.hjson"
+11:13:42.136 [DEBUG] broot::display::luma: terminal_light::luma() took 1.095666ms
+11:13:42.136 [INFO] broot::display::luma: terminal's luma: Ok(0.0)
+11:13:42.136 [DEBUG] broot::conf::conf: reading conf file: "/home/wytchfyre/.config/broot/skins/dark-gruvbox.hjson"
+11:13:42.145 [DEBUG] broot::conf::conf: skipping not applying conf file : "skins/white.hjson"
+11:13:42.145 [DEBUG] broot::cli: Conf::from_default_location() took 11.206411ms
+11:13:42.145 [DEBUG] broot::cli: config: Conf {
+    capture_mouse: None,
+    cols_order: None,
+    content_search_max_file_size: Some(
+        10000000,
+    ),
+    date_time_format: None,
+    default_flags: Some(
+        "-Gh",
+    ),
+    disable_mouse_capture: None,
+    enable_kitty_keyboard: Some(
+        false,
+    ),
+    ext_colors: {},
+    file_sum_threads_count: None,
+    files: [
+        "/home/wytchfyre/.config/broot/conf.hjson",
+        "/home/wytchfyre/.config/broot/verbs.hjson",
+        "/home/wytchfyre/.config/broot/skins/dark-gruvbox.hjson",
+    ],
+    icon_theme: Some(
+        "nerdfont",
+    ),
+    imports: [],
+    initial_mode: None,
+    kitty_graphics_transmission: Some(
+        TempFile,
+    ),
+    kitty_graphics_display: Some(
+        Unicode,
+    ),
+    kept_kitty_temp_files: None,
+    preview_transformers: [
+        PreviewTransformerConf {
+            input_extensions: [
+                "pdf",
+            ],
+            output_extension: "png",
+            command: [
+                "mutool",
+                "draw",
+                "-w",
+                "1000",
+                "-o",
+                "{output-path}",
+                "{input-path}",
+            ],
+            mode: Image,
+        },
+    ],
+    lines_after_match_in_preview: Some(
+        1,
+    ),
+    lines_before_match_in_preview: Some(
+        1,
+    ),
+    max_panels_count: None,
+    max_staged_count: None,
+    modal: Some(
+        false,
+    ),
+    quit_on_last_cancel: Some(
+        true,
+    ),
+    search_modes: None,
+    show_matching_characters_on_path_searches: None,
+    show_selection_mark: Some(
+        true,
+    ),
+    skin: Some(
+        {
+            "good_to_bad_6": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            AnsiValue(
+                                136,
+                            ),
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "group": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 215,
+                                g: 153,
+                                b: 33,
+                            },
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "file": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: None,
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: Some(
+                    CompoundStyle {
+                        object_style: ContentStyle {
+                            foreground_color: None,
+                            background_color: None,
+                            underline_color: None,
+                            attributes: Attributes(
+                                16,
+                            ),
+                        },
+                    },
+                ),
+            },
+            "count": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 69,
+                                g: 133,
+                                b: 136,
+                            },
+                        ),
+                        background_color: Some(
+                            Rgb {
+                                r: 50,
+                                g: 48,
+                                b: 47,
+                            },
+                        ),
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "link": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 104,
+                                g: 157,
+                                b: 106,
+                            },
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "git_deletions": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 190,
+                                g: 15,
+                                b: 23,
+                            },
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "git_branch": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 251,
+                                g: 241,
+                                b: 199,
+                            },
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "status_ellipsis": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 251,
+                                g: 241,
+                                b: 199,
+                            },
+                        ),
+                        background_color: Some(
+                            Rgb {
+                                r: 40,
+                                g: 38,
+                                b: 37,
+                            },
+                        ),
+                        underline_color: None,
+                        attributes: Attributes(
+                            4,
+                        ),
+                    },
+                },
+                unfocused: Some(
+                    CompoundStyle {
+                        object_style: ContentStyle {
+                            foreground_color: None,
+                            background_color: None,
+                            underline_color: None,
+                            attributes: Attributes(
+                                0,
+                            ),
+                        },
+                    },
+                ),
+            },
+            "good_to_bad_5": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            AnsiValue(
+                                100,
+                            ),
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "mode_command_mark": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            AnsiValue(
+                                237,
+                            ),
+                        ),
+                        background_color: Some(
+                            AnsiValue(
+                                204,
+                            ),
+                        ),
+                        underline_color: None,
+                        attributes: Attributes(
+                            4,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "git_status_new": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 104,
+                                g: 187,
+                                b: 38,
+                            },
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            4,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "status_bold": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 211,
+                                g: 134,
+                                b: 155,
+                            },
+                        ),
+                        background_color: Some(
+                            Rgb {
+                                r: 40,
+                                g: 38,
+                                b: 37,
+                            },
+                        ),
+                        underline_color: None,
+                        attributes: Attributes(
+                            4,
+                        ),
+                    },
+                },
+                unfocused: Some(
+                    CompoundStyle {
+                        object_style: ContentStyle {
+                            foreground_color: None,
+                            background_color: None,
+                            underline_color: None,
+                            attributes: Attributes(
+                                0,
+                            ),
+                        },
+                    },
+                ),
+            },
+            "help_paragraph": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: None,
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "hex_ascii_other": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 254,
+                                g: 128,
+                                b: 25,
+                            },
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "exe": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 184,
+                                g: 187,
+                                b: 38,
+                            },
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "preview_line_number": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 124,
+                                g: 111,
+                                b: 100,
+                            },
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: Some(
+                    CompoundStyle {
+                        object_style: ContentStyle {
+                            foreground_color: Some(
+                                Rgb {
+                                    r: 124,
+                                    g: 111,
+                                    b: 100,
+                                },
+                            ),
+                            background_color: Some(
+                                Rgb {
+                                    r: 40,
+                                    g: 40,
+                                    b: 40,
+                                },
+                            ),
+                            underline_color: None,
+                            attributes: Attributes(
+                                0,
+                            ),
+                        },
+                    },
+                ),
+            },
+            "good_to_bad_1": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            AnsiValue(
+                                29,
+                            ),
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "status_italic": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 211,
+                                g: 134,
+                                b: 155,
+                            },
+                        ),
+                        background_color: Some(
+                            Rgb {
+                                r: 40,
+                                g: 38,
+                                b: 37,
+                            },
+                        ),
+                        underline_color: None,
+                        attributes: Attributes(
+                            16,
+                        ),
+                    },
+                },
+                unfocused: Some(
+                    CompoundStyle {
+                        object_style: ContentStyle {
+                            foreground_color: None,
+                            background_color: None,
+                            underline_color: None,
+                            attributes: Attributes(
+                                0,
+                            ),
+                        },
+                    },
+                ),
+            },
+            "perm_w": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 204,
+                                g: 36,
+                                b: 29,
+                            },
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "good_to_bad_3": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            AnsiValue(
+                                29,
+                            ),
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "hex_non_ascii": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 214,
+                                g: 93,
+                                b: 14,
+                            },
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "status_normal": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: None,
+                        background_color: Some(
+                            Rgb {
+                                r: 40,
+                                g: 38,
+                                b: 37,
+                            },
+                        ),
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: Some(
+                    CompoundStyle {
+                        object_style: ContentStyle {
+                            foreground_color: None,
+                            background_color: None,
+                            underline_color: None,
+                            attributes: Attributes(
+                                0,
+                            ),
+                        },
+                    },
+                ),
+            },
+            "good_to_bad_8": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            AnsiValue(
+                                166,
+                            ),
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "purpose_italic": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 177,
+                                g: 98,
+                                b: 134,
+                            },
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            16,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "hex_ascii_graphic": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 213,
+                                g: 196,
+                                b: 161,
+                            },
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "perm__": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: None,
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "default": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 235,
+                                g: 219,
+                                b: 178,
+                            },
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: Some(
+                    CompoundStyle {
+                        object_style: ContentStyle {
+                            foreground_color: Some(
+                                Rgb {
+                                    r: 189,
+                                    g: 174,
+                                    b: 147,
+                                },
+                            ),
+                            background_color: None,
+                            underline_color: None,
+                            attributes: Attributes(
+                                0,
+                            ),
+                        },
+                    },
+                ),
+            },
+            "good_to_bad_2": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            AnsiValue(
+                                29,
+                            ),
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "scrollbar_thumb": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 213,
+                                g: 196,
+                                b: 161,
+                            },
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: Some(
+                    CompoundStyle {
+                        object_style: ContentStyle {
+                            foreground_color: Some(
+                                Rgb {
+                                    r: 102,
+                                    g: 92,
+                                    b: 84,
+                                },
+                            ),
+                            background_color: None,
+                            underline_color: None,
+                            attributes: Attributes(
+                                0,
+                            ),
+                        },
+                    },
+                ),
+            },
+            "git_status_modified": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 152,
+                                g: 151,
+                                b: 26,
+                            },
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "parent": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 235,
+                                g: 219,
+                                b: 178,
+                            },
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: Some(
+                    CompoundStyle {
+                        object_style: ContentStyle {
+                            foreground_color: Some(
+                                Rgb {
+                                    r: 189,
+                                    g: 174,
+                                    b: 147,
+                                },
+                            ),
+                            background_color: None,
+                            underline_color: None,
+                            attributes: Attributes(
+                                16,
+                            ),
+                        },
+                    },
+                ),
+            },
+            "help_code": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 142,
+                                g: 192,
+                                b: 124,
+                            },
+                        ),
+                        background_color: Some(
+                            Rgb {
+                                r: 50,
+                                g: 48,
+                                b: 47,
+                            },
+                        ),
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "content_extract": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            AnsiValue(
+                                29,
+                            ),
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            16,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "tree": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 70,
+                                g: 70,
+                                b: 80,
+                            },
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: Some(
+                    CompoundStyle {
+                        object_style: ContentStyle {
+                            foreground_color: Some(
+                                Rgb {
+                                    r: 60,
+                                    g: 60,
+                                    b: 60,
+                                },
+                            ),
+                            background_color: None,
+                            underline_color: None,
+                            attributes: Attributes(
+                                0,
+                            ),
+                        },
+                    },
+                ),
+            },
+            "char_match": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 250,
+                                g: 189,
+                                b: 47,
+                            },
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "owner": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 215,
+                                g: 153,
+                                b: 33,
+                            },
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            4,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "help_italic": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 211,
+                                g: 134,
+                                b: 155,
+                            },
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            16,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "hex_null": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 189,
+                                g: 174,
+                                b: 147,
+                            },
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "good_to_bad_4": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            AnsiValue(
+                                29,
+                            ),
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "file_error": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 251,
+                                g: 73,
+                                b: 52,
+                            },
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "purpose_normal": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: None,
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "dates": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 168,
+                                g: 153,
+                                b: 132,
+                            },
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "preview": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 235,
+                                g: 219,
+                                b: 178,
+                            },
+                        ),
+                        background_color: Some(
+                            Rgb {
+                                r: 40,
+                                g: 40,
+                                b: 40,
+                            },
+                        ),
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: Some(
+                    CompoundStyle {
+                        object_style: ContentStyle {
+                            foreground_color: Some(
+                                Rgb {
+                                    r: 235,
+                                    g: 219,
+                                    b: 178,
+                                },
+                            ),
+                            background_color: Some(
+                                Rgb {
+                                    r: 40,
+                                    g: 40,
+                                    b: 40,
+                                },
+                            ),
+                            underline_color: None,
+                            attributes: Attributes(
+                                0,
+                            ),
+                        },
+                    },
+                ),
+            },
+            "directory": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 255,
+                                g: 96,
+                                b: 0,
+                            },
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            4,
+                        ),
+                    },
+                },
+                unfocused: Some(
+                    CompoundStyle {
+                        object_style: ContentStyle {
+                            foreground_color: Some(
+                                Rgb {
+                                    r: 255,
+                                    g: 96,
+                                    b: 0,
+                                },
+                            ),
+                            background_color: None,
+                            underline_color: None,
+                            attributes: Attributes(
+                                0,
+                            ),
+                        },
+                    },
+                ),
+            },
+            "help_headers": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 254,
+                                g: 128,
+                                b: 25,
+                            },
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            4,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "content_match": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            AnsiValue(
+                                34,
+                            ),
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            4,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "purpose_bold": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 177,
+                                g: 98,
+                                b: 134,
+                            },
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            4,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "good_to_bad_0": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            AnsiValue(
+                                28,
+                            ),
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "git_insertions": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 152,
+                                g: 151,
+                                b: 26,
+                            },
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "flag_label": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 189,
+                                g: 174,
+                                b: 147,
+                            },
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "staging_area_title": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 235,
+                                g: 219,
+                                b: 178,
+                            },
+                        ),
+                        background_color: Some(
+                            Rgb {
+                                r: 40,
+                                g: 40,
+                                b: 40,
+                            },
+                        ),
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: Some(
+                    CompoundStyle {
+                        object_style: ContentStyle {
+                            foreground_color: Some(
+                                Rgb {
+                                    r: 189,
+                                    g: 174,
+                                    b: 147,
+                                },
+                            ),
+                            background_color: Some(
+                                Rgb {
+                                    r: 40,
+                                    g: 40,
+                                    b: 40,
+                                },
+                            ),
+                            underline_color: None,
+                            attributes: Attributes(
+                                0,
+                            ),
+                        },
+                    },
+                ),
+            },
+            "git_status_ignored": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 213,
+                                g: 196,
+                                b: 161,
+                            },
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "status_code": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 251,
+                                g: 241,
+                                b: 199,
+                            },
+                        ),
+                        background_color: Some(
+                            Rgb {
+                                r: 40,
+                                g: 38,
+                                b: 37,
+                            },
+                        ),
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: Some(
+                    CompoundStyle {
+                        object_style: ContentStyle {
+                            foreground_color: None,
+                            background_color: None,
+                            underline_color: None,
+                            attributes: Attributes(
+                                0,
+                            ),
+                        },
+                    },
+                ),
+            },
+            "good_to_bad_9": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            AnsiValue(
+                                196,
+                            ),
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "git_status_current": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 60,
+                                g: 56,
+                                b: 54,
+                            },
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "preview_match": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: None,
+                        background_color: Some(
+                            AnsiValue(
+                                29,
+                            ),
+                        ),
+                        underline_color: None,
+                        attributes: Attributes(
+                            4,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "preview_title": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 235,
+                                g: 219,
+                                b: 178,
+                            },
+                        ),
+                        background_color: Some(
+                            Rgb {
+                                r: 40,
+                                g: 40,
+                                b: 40,
+                            },
+                        ),
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: Some(
+                    CompoundStyle {
+                        object_style: ContentStyle {
+                            foreground_color: Some(
+                                Rgb {
+                                    r: 189,
+                                    g: 174,
+                                    b: 147,
+                                },
+                            ),
+                            background_color: Some(
+                                Rgb {
+                                    r: 40,
+                                    g: 40,
+                                    b: 40,
+                                },
+                            ),
+                            underline_color: None,
+                            attributes: Attributes(
+                                0,
+                            ),
+                        },
+                    },
+                ),
+            },
+            "good_to_bad_7": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            AnsiValue(
+                                172,
+                            ),
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "preview_separator": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 70,
+                                g: 70,
+                                b: 80,
+                            },
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: Some(
+                    CompoundStyle {
+                        object_style: ContentStyle {
+                            foreground_color: Some(
+                                Rgb {
+                                    r: 60,
+                                    g: 60,
+                                    b: 60,
+                                },
+                            ),
+                            background_color: None,
+                            underline_color: None,
+                            attributes: Attributes(
+                                0,
+                            ),
+                        },
+                    },
+                ),
+            },
+            "perm_r": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 215,
+                                g: 153,
+                                b: 33,
+                            },
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "git_status_other": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 204,
+                                g: 36,
+                                b: 29,
+                            },
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "input": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 251,
+                                g: 241,
+                                b: 199,
+                            },
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: Some(
+                    CompoundStyle {
+                        object_style: ContentStyle {
+                            foreground_color: Some(
+                                Rgb {
+                                    r: 189,
+                                    g: 174,
+                                    b: 147,
+                                },
+                            ),
+                            background_color: None,
+                            underline_color: None,
+                            attributes: Attributes(
+                                16,
+                            ),
+                        },
+                    },
+                ),
+            },
+            "status_error": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 213,
+                                g: 196,
+                                b: 161,
+                            },
+                        ),
+                        background_color: Some(
+                            Rgb {
+                                r: 204,
+                                g: 36,
+                                b: 29,
+                            },
+                        ),
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "hex_ascii_whitespace": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 152,
+                                g: 151,
+                                b: 26,
+                            },
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "perm_x": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 152,
+                                g: 151,
+                                b: 26,
+                            },
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "scrollbar_track": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 80,
+                                g: 73,
+                                b: 69,
+                            },
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: Some(
+                    CompoundStyle {
+                        object_style: ContentStyle {
+                            foreground_color: Some(
+                                Rgb {
+                                    r: 50,
+                                    g: 48,
+                                    b: 47,
+                                },
+                            ),
+                            background_color: None,
+                            underline_color: None,
+                            attributes: Attributes(
+                                0,
+                            ),
+                        },
+                    },
+                ),
+            },
+            "help_bold": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 214,
+                                g: 93,
+                                b: 14,
+                            },
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            4,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "sparse": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 250,
+                                g: 189,
+                                b: 47,
+                            },
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "help_table_border": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 80,
+                                g: 73,
+                                b: 69,
+                            },
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "status_job": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 250,
+                                g: 189,
+                                b: 47,
+                            },
+                        ),
+                        background_color: Some(
+                            Rgb {
+                                r: 60,
+                                g: 56,
+                                b: 54,
+                            },
+                        ),
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "pruning": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 124,
+                                g: 111,
+                                b: 100,
+                            },
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            16,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "git_status_conflicted": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 204,
+                                g: 36,
+                                b: 29,
+                            },
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "selected_line": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: None,
+                        background_color: Some(
+                            Rgb {
+                                r: 60,
+                                g: 56,
+                                b: 54,
+                            },
+                        ),
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: Some(
+                    CompoundStyle {
+                        object_style: ContentStyle {
+                            foreground_color: None,
+                            background_color: Some(
+                                Rgb {
+                                    r: 50,
+                                    g: 48,
+                                    b: 47,
+                                },
+                            ),
+                            underline_color: None,
+                            attributes: Attributes(
+                                0,
+                            ),
+                        },
+                    },
+                ),
+            },
+            "purpose_ellipsis": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: None,
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            0,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+            "flag_value": SkinEntry {
+                focused: CompoundStyle {
+                    object_style: ContentStyle {
+                        foreground_color: Some(
+                            Rgb {
+                                r: 211,
+                                g: 134,
+                                b: 155,
+                            },
+                        ),
+                        background_color: None,
+                        underline_color: None,
+                        attributes: Attributes(
+                            4,
+                        ),
+                    },
+                },
+                unfocused: None,
+            },
+        },
+    ),
+    special_paths: {
+        GlobConf {
+            pattern: "~/.config",
+        }: Detailed(
+            SpecialHandling {
+                show: Always,
+                list: Default,
+                sum: Default,
+            },
+        ),
+        GlobConf {
+            pattern: "/media",
+        }: Detailed(
+            SpecialHandling {
+                show: Default,
+                list: Never,
+                sum: Never,
+            },
+        ),
+        GlobConf {
+            pattern: "trav",
+        }: Detailed(
+            SpecialHandling {
+                show: Always,
+                list: Always,
+                sum: Never,
+            },
+        ),
+    },
+    syntax_theme: None,
+    terminal_title: None,
+    reset_terminal_title_on_exit: None,
+    true_colors: None,
+    update_work_dir: None,
+    verbs: [
+        VerbConf {
+            invocation: Some(
+                "edit",
+            ),
+            internal: None,
+            external: None,
+            execution: Some(
+                String(
+                    "$EDITOR {file}",
+                ),
+            ),
+            cmd: None,
+            cmd_separator: None,
+            key: Some(
+                "ctrl-e",
+            ),
+            keys: [],
+            extensions: [],
+            shortcut: Some(
+                "e",
+            ),
+            leave_broot: Some(
+                false,
+            ),
+            from_shell: None,
+            apply_to: TextFile,
+            set_working_dir: None,
+            working_dir: None,
+            description: None,
+            auto_exec: None,
+            switch_terminal: None,
+            panels: [],
+            refresh_after: None,
+        },
+        VerbConf {
+            invocation: Some(
+                "create {subpath}",
+            ),
+            internal: None,
+            external: None,
+            execution: Some(
+                String(
+                    "$EDITOR {directory}/{subpath}",
+                ),
+            ),
+            cmd: None,
+            cmd_separator: None,
+            key: None,
+            keys: [],
+            extensions: [],
+            shortcut: None,
+            leave_broot: Some(
+                false,
+            ),
+            from_shell: None,
+            apply_to: Any,
+            set_working_dir: None,
+            working_dir: None,
+            description: None,
+            auto_exec: None,
+            switch_terminal: None,
+            panels: [],
+            refresh_after: None,
+        },
+        VerbConf {
+            invocation: Some(
+                "git_diff",
+            ),
+            internal: None,
+            external: None,
+            execution: Some(
+                String(
+                    "git difftool -y {file}",
+                ),
+            ),
+            cmd: None,
+            cmd_separator: None,
+            key: None,
+            keys: [],
+            extensions: [],
+            shortcut: Some(
+                "gd",
+            ),
+            leave_broot: Some(
+                false,
+            ),
+            from_shell: None,
+            apply_to: Any,
+            set_working_dir: None,
+            working_dir: None,
+            description: None,
+            auto_exec: None,
+            switch_terminal: None,
+            panels: [],
+            refresh_after: None,
+        },
+        VerbConf {
+            invocation: Some(
+                "backup {version}",
+            ),
+            internal: None,
+            external: None,
+            execution: Some(
+                String(
+                    "cp -r {file} {parent}/{file-stem}-{version}{file-dot-extension}",
+                ),
+            ),
+            cmd: None,
+            cmd_separator: None,
+            key: Some(
+                "ctrl-b",
+            ),
+            keys: [],
+            extensions: [],
+            shortcut: None,
+            leave_broot: Some(
+                false,
+            ),
+            from_shell: None,
+            apply_to: Any,
+            set_working_dir: None,
+            working_dir: None,
+            description: None,
+            auto_exec: Some(
+                false,
+            ),
+            switch_terminal: None,
+            panels: [],
+            refresh_after: None,
+        },
+        VerbConf {
+            invocation: Some(
+                "terminal",
+            ),
+            internal: None,
+            external: None,
+            execution: Some(
+                String(
+                    "$SHELL",
+                ),
+            ),
+            cmd: None,
+            cmd_separator: None,
+            key: Some(
+                "ctrl-t",
+            ),
+            keys: [],
+            extensions: [],
+            shortcut: None,
+            leave_broot: Some(
+                false,
+            ),
+            from_shell: None,
+            apply_to: Any,
+            set_working_dir: Some(
+                true,
+            ),
+            working_dir: None,
+            description: None,
+            auto_exec: None,
+            switch_terminal: None,
+            panels: [],
+            refresh_after: None,
+        },
+        VerbConf {
+            invocation: None,
+            internal: None,
+            external: None,
+            execution: Some(
+                String(
+                    ":line_up",
+                ),
+            ),
+            cmd: None,
+            cmd_separator: None,
+            key: Some(
+                "ctrl-k",
+            ),
+            keys: [],
+            extensions: [],
+            shortcut: None,
+            leave_broot: None,
+            from_shell: None,
+            apply_to: Any,
+            set_working_dir: None,
+            working_dir: None,
+            description: None,
+            auto_exec: None,
+            switch_terminal: None,
+            panels: [],
+            refresh_after: None,
+        },
+        VerbConf {
+            invocation: None,
+            internal: None,
+            external: None,
+            execution: Some(
+                String(
+                    ":line_down",
+                ),
+            ),
+            cmd: None,
+            cmd_separator: None,
+            key: Some(
+                "ctrl-j",
+            ),
+            keys: [],
+            extensions: [],
+            shortcut: None,
+            leave_broot: None,
+            from_shell: None,
+            apply_to: Any,
+            set_working_dir: None,
+            working_dir: None,
+            description: None,
+            auto_exec: None,
+            switch_terminal: None,
+            panels: [],
+            refresh_after: None,
+        },
+        VerbConf {
+            invocation: None,
+            internal: None,
+            external: None,
+            execution: Some(
+                String(
+                    ":page_up",
+                ),
+            ),
+            cmd: None,
+            cmd_separator: None,
+            key: Some(
+                "ctrl-u",
+            ),
+            keys: [],
+            extensions: [],
+            shortcut: None,
+            leave_broot: None,
+            from_shell: None,
+            apply_to: Any,
+            set_working_dir: None,
+            working_dir: None,
+            description: None,
+            auto_exec: None,
+            switch_terminal: None,
+            panels: [],
+            refresh_after: None,
+        },
+        VerbConf {
+            invocation: None,
+            internal: None,
+            external: None,
+            execution: Some(
+                String(
+                    ":page_down",
+                ),
+            ),
+            cmd: None,
+            cmd_separator: None,
+            key: Some(
+                "ctrl-d",
+            ),
+            keys: [],
+            extensions: [],
+            shortcut: None,
+            leave_broot: None,
+            from_shell: None,
+            apply_to: Any,
+            set_working_dir: None,
+            working_dir: None,
+            description: None,
+            auto_exec: None,
+            switch_terminal: None,
+            panels: [],
+            refresh_after: None,
+        },
+        VerbConf {
+            invocation: None,
+            internal: None,
+            external: None,
+            execution: Some(
+                String(
+                    ":panel_left_no_open",
+                ),
+            ),
+            cmd: None,
+            cmd_separator: None,
+            key: Some(
+                "ctrl-h",
+            ),
+            keys: [],
+            extensions: [],
+            shortcut: None,
+            leave_broot: None,
+            from_shell: None,
+            apply_to: Any,
+            set_working_dir: None,
+            working_dir: None,
+            description: None,
+            auto_exec: None,
+            switch_terminal: None,
+            panels: [],
+            refresh_after: None,
+        },
+        VerbConf {
+            invocation: None,
+            internal: None,
+            external: None,
+            execution: Some(
+                String(
+                    ":panel_right",
+                ),
+            ),
+            cmd: None,
+            cmd_separator: None,
+            key: Some(
+                "ctrl-l",
+            ),
+            keys: [],
+            extensions: [],
+            shortcut: None,
+            leave_broot: None,
+            from_shell: None,
+            apply_to: Any,
+            set_working_dir: None,
+            working_dir: None,
+            description: None,
+            auto_exec: None,
+            switch_terminal: None,
+            panels: [],
+            refresh_after: None,
+        },
+    ],
+    layout_instructions: None,
+}
+11:13:42.163 [DEBUG] broot::app::app_context: COLORTERM env variable = "truecolor"
+11:13:42.163 [DEBUG] broot::app::app_context: true colors are available
+11:13:42.163 [DEBUG] broot::tree_build::builder: Ignorer::default() took 34ns
+11:13:42.178 [DEBUG] broot::tree_build::builder: blines before trimming: 11
+11:13:42.280 [DEBUG] broot::app::app: Clipboard backend: "X11"
+11:13:42.280 [INFO] broot::app::app: event source is combining: false
+11:13:42.281 [DEBUG] broot::app::app: display panel took 170.917µs
+11:13:42.281 [DEBUG] broot::kitty::detect_support: is_tmux ?
+11:13:42.281 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
+11:13:42.281 [DEBUG] broot::app::app: pending_tasks took 872ns
+11:13:44.868 [DEBUG] broot::app::app: key combination: Ctrl-j
+11:13:44.868 [DEBUG] broot::command::panel_input: verb for key: :line_down
+11:13:44.868 [DEBUG] broot::app::app: command after add_event: VerbTrigger { verb_id: 6, input_invocation: None }
+11:13:44.868 [DEBUG] broot::browser::browser_state: browser_state on_internal InternalExecution { internal: line_down, bang: false, arg: None }
+11:13:44.868 [INFO] broot::app::app: cmd_result: Keep
+11:13:44.868 [DEBUG] broot::app::app: display panel took 491.373µs
+11:13:44.868 [DEBUG] broot::kitty::detect_support: is_tmux ?
+11:13:44.868 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
+11:13:44.868 [DEBUG] broot::app::app: pending_tasks took 699ns
+11:13:45.036 [DEBUG] broot::app::app: key combination: Ctrl-j
+11:13:45.036 [DEBUG] broot::command::panel_input: verb for key: :line_down
+11:13:45.036 [DEBUG] broot::app::app: command after add_event: VerbTrigger { verb_id: 6, input_invocation: None }
+11:13:45.036 [DEBUG] broot::browser::browser_state: browser_state on_internal InternalExecution { internal: line_down, bang: false, arg: None }
+11:13:45.036 [INFO] broot::app::app: cmd_result: Keep
+11:13:45.036 [DEBUG] broot::app::app: display panel took 432.714µs
+11:13:45.036 [DEBUG] broot::kitty::detect_support: is_tmux ?
+11:13:45.036 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
+11:13:45.036 [DEBUG] broot::app::app: pending_tasks took 599ns
+11:13:45.209 [DEBUG] broot::app::app: key combination: Ctrl-j
+11:13:45.209 [DEBUG] broot::command::panel_input: verb for key: :line_down
+11:13:45.209 [DEBUG] broot::app::app: command after add_event: VerbTrigger { verb_id: 6, input_invocation: None }
+11:13:45.209 [DEBUG] broot::browser::browser_state: browser_state on_internal InternalExecution { internal: line_down, bang: false, arg: None }
+11:13:45.209 [INFO] broot::app::app: cmd_result: Keep
+11:13:45.209 [DEBUG] broot::app::app: display panel took 393.041µs
+11:13:45.209 [DEBUG] broot::kitty::detect_support: is_tmux ?
+11:13:45.209 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
+11:13:45.209 [DEBUG] broot::app::app: pending_tasks took 454ns
+11:13:45.377 [DEBUG] broot::app::app: key combination: Ctrl-j
+11:13:45.377 [DEBUG] broot::command::panel_input: verb for key: :line_down
+11:13:45.377 [DEBUG] broot::app::app: command after add_event: VerbTrigger { verb_id: 6, input_invocation: None }
+11:13:45.377 [DEBUG] broot::browser::browser_state: browser_state on_internal InternalExecution { internal: line_down, bang: false, arg: None }
+11:13:45.377 [INFO] broot::app::app: cmd_result: Keep
+11:13:45.377 [DEBUG] broot::app::app: display panel took 391.259µs
+11:13:45.377 [DEBUG] broot::kitty::detect_support: is_tmux ?
+11:13:45.377 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
+11:13:45.377 [DEBUG] broot::app::app: pending_tasks took 550ns
+11:13:45.547 [DEBUG] broot::app::app: key combination: Ctrl-j
+11:13:45.547 [DEBUG] broot::command::panel_input: verb for key: :line_down
+11:13:45.547 [DEBUG] broot::app::app: command after add_event: VerbTrigger { verb_id: 6, input_invocation: None }
+11:13:45.547 [DEBUG] broot::browser::browser_state: browser_state on_internal InternalExecution { internal: line_down, bang: false, arg: None }
+11:13:45.547 [INFO] broot::app::app: cmd_result: Keep
+11:13:45.548 [DEBUG] broot::app::app: display panel took 464.626µs
+11:13:45.548 [DEBUG] broot::kitty::detect_support: is_tmux ?
+11:13:45.548 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
+11:13:45.548 [DEBUG] broot::app::app: pending_tasks took 656ns
+11:13:45.963 [DEBUG] broot::app::app: key combination: Ctrl-k
+11:13:45.963 [DEBUG] broot::command::panel_input: verb for key: :line_up
+11:13:45.963 [DEBUG] broot::app::app: command after add_event: VerbTrigger { verb_id: 5, input_invocation: None }
+11:13:45.963 [DEBUG] broot::browser::browser_state: browser_state on_internal InternalExecution { internal: line_up, bang: false, arg: None }
+11:13:45.964 [INFO] broot::app::app: cmd_result: Keep
+11:13:45.964 [DEBUG] broot::app::app: display panel took 476.618µs
+11:13:45.964 [DEBUG] broot::kitty::detect_support: is_tmux ?
+11:13:45.964 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
+11:13:45.964 [DEBUG] broot::app::app: pending_tasks took 600ns
+11:13:46.136 [DEBUG] broot::app::app: key combination: Ctrl-k
+11:13:46.136 [DEBUG] broot::command::panel_input: verb for key: :line_up
+11:13:46.136 [DEBUG] broot::app::app: command after add_event: VerbTrigger { verb_id: 5, input_invocation: None }
+11:13:46.136 [DEBUG] broot::browser::browser_state: browser_state on_internal InternalExecution { internal: line_up, bang: false, arg: None }
+11:13:46.136 [INFO] broot::app::app: cmd_result: Keep
+11:13:46.136 [DEBUG] broot::app::app: display panel took 723.486µs
+11:13:46.136 [DEBUG] broot::kitty::detect_support: is_tmux ?
+11:13:46.136 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
+11:13:46.136 [DEBUG] broot::app::app: pending_tasks took 1.855µs
+11:13:46.384 [DEBUG] broot::app::app: key combination: Ctrl-k
+11:13:46.384 [DEBUG] broot::command::panel_input: verb for key: :line_up
+11:13:46.384 [DEBUG] broot::app::app: command after add_event: VerbTrigger { verb_id: 5, input_invocation: None }
+11:13:46.384 [DEBUG] broot::browser::browser_state: browser_state on_internal InternalExecution { internal: line_up, bang: false, arg: None }
+11:13:46.384 [INFO] broot::app::app: cmd_result: Keep
+11:13:46.384 [DEBUG] broot::app::app: display panel took 389.163µs
+11:13:46.384 [DEBUG] broot::kitty::detect_support: is_tmux ?
+11:13:46.384 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
+11:13:46.384 [DEBUG] broot::app::app: pending_tasks took 753ns
+11:13:46.560 [DEBUG] broot::app::app: key combination: Ctrl-k
+11:13:46.560 [DEBUG] broot::command::panel_input: verb for key: :line_up
+11:13:46.560 [DEBUG] broot::app::app: command after add_event: VerbTrigger { verb_id: 5, input_invocation: None }
+11:13:46.561 [DEBUG] broot::browser::browser_state: browser_state on_internal InternalExecution { internal: line_up, bang: false, arg: None }
+11:13:46.561 [INFO] broot::app::app: cmd_result: Keep
+11:13:46.561 [DEBUG] broot::app::app: display panel took 244.729µs
+11:13:46.561 [DEBUG] broot::kitty::detect_support: is_tmux ?
+11:13:46.561 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
+11:13:46.561 [DEBUG] broot::app::app: pending_tasks took 426ns
+11:13:46.880 [DEBUG] broot::app::app: key combination: Ctrl-k
+11:13:46.880 [DEBUG] broot::command::panel_input: verb for key: :line_up
+11:13:46.880 [DEBUG] broot::app::app: command after add_event: VerbTrigger { verb_id: 5, input_invocation: None }
+11:13:46.880 [DEBUG] broot::browser::browser_state: browser_state on_internal InternalExecution { internal: line_up, bang: false, arg: None }
+11:13:46.880 [INFO] broot::app::app: cmd_result: Keep
+11:13:46.880 [DEBUG] broot::app::app: display panel took 397.545µs
+11:13:46.880 [DEBUG] broot::kitty::detect_support: is_tmux ?
+11:13:46.880 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
+11:13:46.880 [DEBUG] broot::app::app: pending_tasks took 704ns
+11:13:47.276 [DEBUG] broot::app::app: key combination: Enter
+11:13:47.276 [DEBUG] broot::command::panel_input: verb for key: :open_stay
+11:13:47.277 [DEBUG] broot::app::app: command after add_event: VerbTrigger { verb_id: 67, input_invocation: None }
+11:13:47.277 [DEBUG] broot::browser::browser_state: browser_state on_internal InternalExecution { internal: open_stay, bang: false, arg: None }
+11:13:47.277 [DEBUG] broot::tree_build::builder: Ignorer::default() took 32ns
+11:13:47.277 [DEBUG] broot::tree_build::builder: blines before trimming: 35
+11:13:47.277 [INFO] broot::app::app: cmd_result: NewState
+11:13:47.277 [DEBUG] broot::app::app: display panel took 154.999µs
+11:13:47.277 [DEBUG] broot::kitty::detect_support: is_tmux ?
+11:13:47.277 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
+11:13:47.277 [DEBUG] broot::app::app: pending_tasks took 400ns
+11:13:49.019 [DEBUG] broot::app::app: key combination: o
+11:13:49.019 [DEBUG] broot::app::app: command after add_event: PatternEdit { raw: "o", expr: BeTree { atoms: [PatternParts { parts: ["o"] }], nodes: [Node { operator: None, parent: None, left: Atom(0), right: None, unary: false }], head: 0, tail: 0, last_pushed: Atom, op_count: 0, openness: 0 } }
+11:13:49.019 [INFO] broot::app::app: cmd_result: Keep
+11:13:49.020 [DEBUG] broot::app::app: display panel took 840.44µs
+11:13:49.020 [DEBUG] broot::kitty::detect_support: is_tmux ?
+11:13:49.020 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
+11:13:49.020 [DEBUG] broot::tree_build::builder: Ignorer::default() took 39ns
+11:13:49.020 [DEBUG] broot::tree_build::builder: blines before trimming: 31
+11:13:49.021 [INFO] broot::browser::browser_state: tree filtering on "o" took 823.94µs
+11:13:49.021 [DEBUG] broot::app::app: display panel took 438.72µs
+11:13:49.021 [DEBUG] broot::kitty::detect_support: is_tmux ?
+11:13:49.021 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
+11:13:49.021 [DEBUG] broot::app::app: pending_tasks took 1.552978ms
+11:13:49.104 [DEBUG] broot::app::app: key combination: p
+11:13:49.104 [DEBUG] broot::app::app: command after add_event: PatternEdit { raw: "op", expr: BeTree { atoms: [PatternParts { parts: ["op"] }], nodes: [Node { operator: None, parent: None, left: Atom(0), right: None, unary: false }], head: 0, tail: 0, last_pushed: Atom, op_count: 0, openness: 0 } }
+11:13:49.104 [INFO] broot::app::app: cmd_result: Keep
+11:13:49.105 [DEBUG] broot::app::app: display panel took 846.927µs
+11:13:49.105 [DEBUG] broot::kitty::detect_support: is_tmux ?
+11:13:49.105 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
+11:13:49.105 [DEBUG] broot::tree_build::builder: Ignorer::default() took 37ns
+11:13:49.106 [DEBUG] broot::tree_build::builder: blines before trimming: 10
+11:13:49.106 [INFO] broot::browser::browser_state: tree filtering on "op" took 348.062µs
+11:13:49.106 [DEBUG] broot::app::app: display panel took 150.222µs
+11:13:49.106 [DEBUG] broot::kitty::detect_support: is_tmux ?
+11:13:49.106 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
+11:13:49.106 [DEBUG] broot::app::app: pending_tasks took 698.606µs
+11:13:49.246 [DEBUG] broot::app::app: key combination: t
+11:13:49.246 [DEBUG] broot::app::app: command after add_event: PatternEdit { raw: "opt", expr: BeTree { atoms: [PatternParts { parts: ["opt"] }], nodes: [Node { operator: None, parent: None, left: Atom(0), right: None, unary: false }], head: 0, tail: 0, last_pushed: Atom, op_count: 0, openness: 0 } }
+11:13:49.247 [INFO] broot::app::app: cmd_result: Keep
+11:13:49.247 [DEBUG] broot::app::app: display panel took 249.261µs
+11:13:49.247 [DEBUG] broot::kitty::detect_support: is_tmux ?
+11:13:49.247 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
+11:13:49.247 [DEBUG] broot::tree_build::builder: Ignorer::default() took 40ns
+11:13:49.247 [DEBUG] broot::tree_build::builder: blines before trimming: 8
+11:13:49.247 [INFO] broot::browser::browser_state: tree filtering on "opt" took 214.787µs
+11:13:49.247 [DEBUG] broot::app::app: display panel took 288.458µs
+11:13:49.247 [DEBUG] broot::kitty::detect_support: is_tmux ?
+11:13:49.247 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
+11:13:49.248 [DEBUG] broot::app::app: pending_tasks took 829.207µs
+11:13:49.353 [DEBUG] broot::app::app: key combination: i
+11:13:49.353 [DEBUG] broot::app::app: command after add_event: PatternEdit { raw: "opti", expr: BeTree { atoms: [PatternParts { parts: ["opti"] }], nodes: [Node { operator: None, parent: None, left: Atom(0), right: None, unary: false }], head: 0, tail: 0, last_pushed: Atom, op_count: 0, openness: 0 } }
+11:13:49.353 [INFO] broot::app::app: cmd_result: Keep
+11:13:49.354 [DEBUG] broot::app::app: display panel took 264.381µs
+11:13:49.354 [DEBUG] broot::kitty::detect_support: is_tmux ?
+11:13:49.354 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
+11:13:49.354 [DEBUG] broot::tree_build::builder: Ignorer::default() took 52ns
+11:13:49.354 [DEBUG] broot::tree_build::builder: blines before trimming: 6
+11:13:49.354 [INFO] broot::browser::browser_state: tree filtering on "opti" took 223.29µs
+11:13:49.354 [DEBUG] broot::app::app: display panel took 75.284µs
+11:13:49.354 [DEBUG] broot::kitty::detect_support: is_tmux ?
+11:13:49.354 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
+11:13:49.354 [DEBUG] broot::app::app: pending_tasks took 413.047µs
+11:13:49.398 [DEBUG] broot::app::app: key combination: o
+11:13:49.398 [DEBUG] broot::app::app: command after add_event: PatternEdit { raw: "optio", expr: BeTree { atoms: [PatternParts { parts: ["optio"] }], nodes: [Node { operator: None, parent: None, left: Atom(0), right: None, unary: false }], head: 0, tail: 0, last_pushed: Atom, op_count: 0, openness: 0 } }
+11:13:49.398 [INFO] broot::app::app: cmd_result: Keep
+11:13:49.398 [DEBUG] broot::app::app: display panel took 89.208µs
+11:13:49.398 [DEBUG] broot::kitty::detect_support: is_tmux ?
+11:13:49.398 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
+11:13:49.398 [DEBUG] broot::tree_build::builder: Ignorer::default() took 35ns
+11:13:49.398 [DEBUG] broot::tree_build::builder: blines before trimming: 6
+11:13:49.398 [INFO] broot::browser::browser_state: tree filtering on "optio" took 195.289µs
+11:13:49.399 [DEBUG] broot::app::app: display panel took 282.929µs
+11:13:49.399 [DEBUG] broot::kitty::detect_support: is_tmux ?
+11:13:49.399 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
+11:13:49.399 [DEBUG] broot::app::app: pending_tasks took 616.573µs
+11:13:50.496 [DEBUG] broot::app::app: key combination: Ctrl-e
+11:13:50.496 [DEBUG] broot::command::panel_input: verb for key: $EDITOR {file}
+11:13:50.496 [DEBUG] broot::app::app: command after add_event: VerbTrigger { verb_id: 0, input_invocation: None }
+11:13:50.496 [DEBUG] broot::verb::execution_builder: repl name : "file"
+11:13:50.496 [INFO] broot::verb::external_execution: Executing not leaving, launchable Program { exe: "nvim", args: ["/home/wytchfyre/.config/nvim/lua/config/options.lua"], working_dir: None, switch_terminal: true, capture_mouse: true, keyboard_enhanced: false }
+11:13:50.496 [DEBUG] broot::launchable: working_dir: None
+11:13:50.496 [DEBUG] broot::launchable: switch_terminal: true
