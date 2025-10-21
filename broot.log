@@ -1,29 +1,27 @@
-10:02:51.211 [INFO] cli_log::init: Starting broot v1.51.0 with log level DEBUG
-10:02:51.211 [DEBUG] broot: env::args(): [
+19:39:58.061 [INFO] cli_log::init: Starting broot v1.51.0 with log level DEBUG
+19:39:58.061 [DEBUG] broot: env::args(): [
     "broot",
 ]
-10:02:51.212 [INFO] broot::shell_install: Shell installation state: UpToDate
-10:02:51.212 [DEBUG] broot::conf::conf: reading conf file: "/home/wytchfyre/.config/broot/conf.hjson"
-10:02:51.213 [DEBUG] broot::conf::conf: reading conf file: "/home/wytchfyre/.config/broot/verbs.hjson"
-10:02:51.214 [DEBUG] broot::display::luma: terminal_light::luma() took 1.063115ms
-10:02:51.214 [INFO] broot::display::luma: terminal's luma: Ok(0.0)
-10:02:51.214 [DEBUG] broot::conf::conf: reading conf file: "/home/wytchfyre/.config/broot/skins/dark-gruvbox.hjson"
-10:02:51.224 [DEBUG] broot::conf::conf: skipping not applying conf file : "skins/white.hjson"
-10:02:51.224 [DEBUG] broot::cli: Conf::from_default_location() took 11.71645ms
-10:02:51.224 [DEBUG] broot::cli: config: Conf {
+19:39:58.061 [INFO] broot::shell_install: Shell installation state: UpToDate
+19:39:58.061 [DEBUG] broot::conf::conf: reading conf file: "/home/wytchfyre/.config/broot/conf.hjson"
+19:39:58.062 [DEBUG] broot::conf::conf: reading conf file: "/home/wytchfyre/.config/broot/verbs.hjson"
+19:39:58.062 [DEBUG] broot::display::luma: terminal_light::luma() took 261.697µs
+19:39:58.062 [INFO] broot::display::luma: terminal's luma: Ok(0.0)
+19:39:58.062 [DEBUG] broot::conf::conf: reading conf file: "/home/wytchfyre/.config/broot/skins/dark-gruvbox.hjson"
+19:39:58.065 [DEBUG] broot::conf::conf: skipping not applying conf file : "skins/white.hjson"
+19:39:58.065 [DEBUG] broot::cli: Conf::from_default_location() took 4.172158ms
+19:39:58.066 [DEBUG] broot::cli: config: Conf {
     capture_mouse: None,
     cols_order: None,
     content_search_max_file_size: Some(
-        10000000,
+        50000000000,
     ),
     date_time_format: None,
     default_flags: Some(
         "-Gh",
     ),
     disable_mouse_capture: None,
-    enable_kitty_keyboard: Some(
-        false,
-    ),
+    enable_kitty_keyboard: None,
     ext_colors: {},
     file_sum_threads_count: None,
     files: [
@@ -1864,7 +1862,9 @@
     syntax_theme: None,
     terminal_title: None,
     reset_terminal_title_on_exit: None,
-    true_colors: None,
+    true_colors: Some(
+        true,
+    ),
     update_work_dir: None,
     verbs: [
         VerbConf {
@@ -1893,6 +1893,38 @@
             ),
             from_shell: None,
             apply_to: TextFile,
+            set_working_dir: None,
+            working_dir: None,
+            description: None,
+            auto_exec: None,
+            switch_terminal: None,
+            panels: [],
+            refresh_after: None,
+        },
+        VerbConf {
+            invocation: Some(
+                "t {new_file}",
+            ),
+            internal: None,
+            external: None,
+            execution: Some(
+                String(
+                    "touch {directory}/{new_file}",
+                ),
+            ),
+            cmd: None,
+            cmd_separator: None,
+            key: Some(
+                "ctrl-t",
+            ),
+            keys: [],
+            extensions: [],
+            shortcut: None,
+            leave_broot: Some(
+                false,
+            ),
+            from_shell: None,
+            apply_to: Any,
             set_working_dir: None,
             working_dir: None,
             description: None,
@@ -1999,6 +2031,34 @@
         },
         VerbConf {
             invocation: Some(
+                "rm",
+            ),
+            internal: Some(
+                "trash",
+            ),
+            external: None,
+            execution: None,
+            cmd: None,
+            cmd_separator: None,
+            key: None,
+            keys: [],
+            extensions: [],
+            shortcut: None,
+            leave_broot: Some(
+                false,
+            ),
+            from_shell: None,
+            apply_to: Any,
+            set_working_dir: None,
+            working_dir: None,
+            description: None,
+            auto_exec: None,
+            switch_terminal: None,
+            panels: [],
+            refresh_after: None,
+        },
+        VerbConf {
+            invocation: Some(
                 "terminal",
             ),
             internal: None,
@@ -2093,7 +2153,7 @@
             external: None,
             execution: Some(
                 String(
-                    ":page_up",
+                    ":select_first",
                 ),
             ),
             cmd: None,
@@ -2121,7 +2181,7 @@
             external: None,
             execution: Some(
                 String(
-                    ":page_down",
+                    ":select_last",
                 ),
             ),
             cmd: None,
@@ -2199,88 +2259,430 @@
             panels: [],
             refresh_after: None,
         },
+        VerbConf {
+            invocation: Some(
+                "toggle_stage",
+            ),
+            internal: Some(
+                ":open_staging_area",
+            ),
+            external: None,
+            execution: None,
+            cmd: None,
+            cmd_separator: None,
+            key: Some(
+                "ctrl-o",
+            ),
+            keys: [],
+            extensions: [],
+            shortcut: None,
+            leave_broot: None,
+            from_shell: None,
+            apply_to: Any,
+            set_working_dir: None,
+            working_dir: None,
+            description: None,
+            auto_exec: None,
+            switch_terminal: None,
+            panels: [],
+            refresh_after: None,
+        },
+        VerbConf {
+            invocation: Some(
+                "mv {new_filename}",
+            ),
+            internal: None,
+            external: None,
+            execution: Some(
+                String(
+                    "mv {file} {parent}/{new_filename}",
+                ),
+            ),
+            cmd: None,
+            cmd_separator: None,
+            key: None,
+            keys: [],
+            extensions: [],
+            shortcut: None,
+            leave_broot: Some(
+                false,
+            ),
+            from_shell: None,
+            apply_to: Any,
+            set_working_dir: None,
+            working_dir: None,
+            description: None,
+            auto_exec: None,
+            switch_terminal: None,
+            panels: [],
+            refresh_after: None,
+        },
+        VerbConf {
+            invocation: Some(
+                "ds {new_filename}",
+            ),
+            internal: None,
+            external: None,
+            execution: Some(
+                String(
+                    "rg --files --max-depth 4 --glob 'nevermind'",
+                ),
+            ),
+            cmd: None,
+            cmd_separator: None,
+            key: None,
+            keys: [],
+            extensions: [],
+            shortcut: None,
+            leave_broot: Some(
+                true,
+            ),
+            from_shell: None,
+            apply_to: Any,
+            set_working_dir: None,
+            working_dir: None,
+            description: None,
+            auto_exec: None,
+            switch_terminal: None,
+            panels: [],
+            refresh_after: None,
+        },
+        VerbConf {
+            invocation: Some(
+                "toggle_depth {integer}",
+            ),
+            internal: Some(
+                ":set_max_depth {integer}",
+            ),
+            external: None,
+            execution: None,
+            cmd: None,
+            cmd_separator: None,
+            key: None,
+            keys: [],
+            extensions: [],
+            shortcut: Some(
+                "td",
+            ),
+            leave_broot: Some(
+                false,
+            ),
+            from_shell: None,
+            apply_to: Any,
+            set_working_dir: None,
+            working_dir: None,
+            description: None,
+            auto_exec: None,
+            switch_terminal: None,
+            panels: [],
+            refresh_after: None,
+        },
     ],
     layout_instructions: None,
 }
-10:02:51.245 [DEBUG] broot::app::app_context: COLORTERM env variable = "truecolor"
-10:02:51.245 [DEBUG] broot::app::app_context: true colors are available
-10:02:51.245 [DEBUG] broot::tree_build::builder: Ignorer::default() took 47ns
-10:02:51.255 [DEBUG] broot::tree_build::builder: blines before trimming: 31
-10:02:51.358 [DEBUG] broot::app::app: Clipboard backend: "X11"
-10:02:51.358 [INFO] broot::app::app: event source is combining: false
-10:02:51.359 [DEBUG] broot::app::app: display panel took 555.218µs
-10:02:51.359 [DEBUG] broot::kitty::detect_support: is_tmux ?
-10:02:51.359 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
-10:02:51.359 [DEBUG] broot::app::app: pending_tasks took 886ns
-10:02:54.159 [DEBUG] broot::app::app: key combination: s
-10:02:54.159 [DEBUG] broot::app::app: command after add_event: PatternEdit { raw: "s", expr: BeTree { atoms: [PatternParts { parts: ["s"] }], nodes: [Node { operator: None, parent: None, left: Atom(0), right: None, unary: false }], head: 0, tail: 0, last_pushed: Atom, op_count: 0, openness: 0 } }
-10:02:54.159 [INFO] broot::app::app: cmd_result: Keep
-10:02:54.160 [DEBUG] broot::app::app: display panel took 327.296µs
-10:02:54.160 [DEBUG] broot::kitty::detect_support: is_tmux ?
-10:02:54.160 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
-10:02:54.160 [DEBUG] broot::tree_build::builder: Ignorer::default() took 72ns
-10:02:54.177 [DEBUG] broot::tree_build::builder: blines before trimming: 176
-10:02:54.180 [INFO] broot::browser::browser_state: tree filtering on "s" took 20.152788ms
-10:02:54.181 [DEBUG] broot::app::app: display panel took 1.273706ms
-10:02:54.182 [DEBUG] broot::kitty::detect_support: is_tmux ?
-10:02:54.182 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
-10:02:54.182 [DEBUG] broot::app::app: pending_tasks took 21.700911ms
-10:02:54.263 [DEBUG] broot::app::app: key combination: n
-10:02:54.263 [DEBUG] broot::app::app: command after add_event: PatternEdit { raw: "sn", expr: BeTree { atoms: [PatternParts { parts: ["sn"] }], nodes: [Node { operator: None, parent: None, left: Atom(0), right: None, unary: false }], head: 0, tail: 0, last_pushed: Atom, op_count: 0, openness: 0 } }
-10:02:54.263 [INFO] broot::app::app: cmd_result: Keep
-10:02:54.264 [DEBUG] broot::app::app: display panel took 1.112306ms
-10:02:54.264 [DEBUG] broot::kitty::detect_support: is_tmux ?
-10:02:54.264 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
-10:02:54.264 [DEBUG] broot::tree_build::builder: Ignorer::default() took 74ns
-10:02:54.267 [DEBUG] broot::tree_build::builder: blines before trimming: 87
-10:02:54.268 [INFO] broot::browser::browser_state: tree filtering on "sn" took 3.023477ms
-10:02:54.269 [DEBUG] broot::app::app: display panel took 1.172396ms
-10:02:54.269 [DEBUG] broot::kitty::detect_support: is_tmux ?
-10:02:54.269 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
-10:02:54.269 [DEBUG] broot::app::app: pending_tasks took 4.58808ms
-10:02:54.389 [DEBUG] broot::app::app: key combination: a
-10:02:54.389 [DEBUG] broot::app::app: command after add_event: PatternEdit { raw: "sna", expr: BeTree { atoms: [PatternParts { parts: ["sna"] }], nodes: [Node { operator: None, parent: None, left: Atom(0), right: None, unary: false }], head: 0, tail: 0, last_pushed: Atom, op_count: 0, openness: 0 } }
-10:02:54.389 [INFO] broot::app::app: cmd_result: Keep
-10:02:54.391 [DEBUG] broot::app::app: display panel took 1.931424ms
-10:02:54.391 [DEBUG] broot::kitty::detect_support: is_tmux ?
-10:02:54.391 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
-10:02:54.391 [DEBUG] broot::tree_build::builder: Ignorer::default() took 71ns
-10:02:54.394 [DEBUG] broot::tree_build::builder: blines before trimming: 84
-10:02:54.394 [INFO] broot::browser::browser_state: tree filtering on "sna" took 2.858753ms
-10:02:54.396 [DEBUG] broot::app::app: display panel took 1.344163ms
-10:02:54.396 [DEBUG] broot::kitty::detect_support: is_tmux ?
-10:02:54.396 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
-10:02:54.396 [DEBUG] broot::app::app: pending_tasks took 4.466597ms
-10:02:54.473 [DEBUG] broot::app::app: key combination: c
-10:02:54.473 [DEBUG] broot::app::app: command after add_event: PatternEdit { raw: "snac", expr: BeTree { atoms: [PatternParts { parts: ["snac"] }], nodes: [Node { operator: None, parent: None, left: Atom(0), right: None, unary: false }], head: 0, tail: 0, last_pushed: Atom, op_count: 0, openness: 0 } }
-10:02:54.473 [INFO] broot::app::app: cmd_result: Keep
-10:02:54.475 [DEBUG] broot::app::app: display panel took 1.429254ms
-10:02:54.475 [DEBUG] broot::kitty::detect_support: is_tmux ?
-10:02:54.475 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
-10:02:54.475 [DEBUG] broot::tree_build::builder: Ignorer::default() took 99ns
-10:02:54.478 [DEBUG] broot::tree_build::builder: blines before trimming: 61
-10:02:54.478 [INFO] broot::browser::browser_state: tree filtering on "snac" took 3.012657ms
-10:02:54.478 [DEBUG] broot::app::app: display panel took 180.152µs
-10:02:54.478 [DEBUG] broot::kitty::detect_support: is_tmux ?
-10:02:54.478 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
-10:02:54.478 [DEBUG] broot::app::app: pending_tasks took 3.517575ms
-10:02:54.589 [DEBUG] broot::app::app: key combination: k
-10:02:54.589 [DEBUG] broot::app::app: command after add_event: PatternEdit { raw: "snack", expr: BeTree { atoms: [PatternParts { parts: ["snack"] }], nodes: [Node { operator: None, parent: None, left: Atom(0), right: None, unary: false }], head: 0, tail: 0, last_pushed: Atom, op_count: 0, openness: 0 } }
-10:02:54.589 [INFO] broot::app::app: cmd_result: Keep
-10:02:54.590 [DEBUG] broot::app::app: display panel took 904.09µs
-10:02:54.590 [DEBUG] broot::kitty::detect_support: is_tmux ?
-10:02:54.590 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
-10:02:54.590 [DEBUG] broot::tree_build::builder: Ignorer::default() took 115ns
-10:02:54.593 [DEBUG] broot::tree_build::builder: blines before trimming: 61
-10:02:54.593 [INFO] broot::browser::browser_state: tree filtering on "snack" took 2.923934ms
-10:02:54.594 [DEBUG] broot::app::app: display panel took 187.254µs
-10:02:54.594 [DEBUG] broot::kitty::detect_support: is_tmux ?
-10:02:54.594 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
-10:02:54.594 [DEBUG] broot::app::app: pending_tasks took 3.498914ms
-10:02:56.390 [DEBUG] broot::app::app: key combination: Ctrl-e
-10:02:56.399 [DEBUG] broot::command::panel_input: verb for key: $EDITOR {file}
-10:02:56.399 [DEBUG] broot::app::app: command after add_event: VerbTrigger { verb_id: 0, input_invocation: None }
-10:02:56.399 [DEBUG] broot::verb::execution_builder: repl name : "file"
-10:02:56.399 [INFO] broot::verb::external_execution: Executing not leaving, launchable Program { exe: "nvim", args: ["/home/wytchfyre/.config/nvim/lua/plugins/snacks.lua"], working_dir: None, switch_terminal: true, capture_mouse: true, keyboard_enhanced: false }
-10:02:56.400 [DEBUG] broot::launchable: working_dir: None
-10:02:56.401 [DEBUG] broot::launchable: switch_terminal: true
+19:39:58.077 [DEBUG] broot::tree_build::builder: Ignorer::default() took 21ns
+19:39:58.086 [DEBUG] broot::tree_build::builder: blines before trimming: 34
+19:39:58.189 [DEBUG] broot::app::app: Clipboard backend: "X11"
+19:39:58.189 [INFO] broot::app::app: event source is combining: false
+19:39:58.189 [DEBUG] broot::app::app: display panel took 265.5µs
+19:39:58.189 [DEBUG] broot::kitty::detect_support: is_tmux ?
+19:39:58.189 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
+19:39:58.189 [DEBUG] broot::kitty::detect_support: $TERMINAL = "kitty"
+19:39:58.189 [DEBUG] broot::app::app: pending_tasks took 370ns
+19:40:01.531 [DEBUG] broot::app::app: key combination: Ctrl-j
+19:40:01.531 [DEBUG] broot::command::panel_input: verb for key: :line_down
+19:40:01.531 [DEBUG] broot::app::app: command after add_event: VerbTrigger { verb_id: 8, input_invocation: None }
+19:40:01.531 [DEBUG] broot::browser::browser_state: browser_state on_internal InternalExecution { internal: line_down, bang: false, arg: None }
+19:40:01.531 [INFO] broot::app::app: cmd_result: Keep
+19:40:01.531 [DEBUG] broot::app::app: display panel took 126.348µs
+19:40:01.531 [DEBUG] broot::kitty::detect_support: is_tmux ?
+19:40:01.531 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
+19:40:01.531 [DEBUG] broot::kitty::detect_support: $TERMINAL = "kitty"
+19:40:01.531 [DEBUG] broot::app::app: pending_tasks took 258ns
+19:40:01.944 [DEBUG] broot::app::app: key combination: Ctrl-j
+19:40:01.944 [DEBUG] broot::command::panel_input: verb for key: :line_down
+19:40:01.944 [DEBUG] broot::app::app: command after add_event: VerbTrigger { verb_id: 8, input_invocation: None }
+19:40:01.944 [DEBUG] broot::browser::browser_state: browser_state on_internal InternalExecution { internal: line_down, bang: false, arg: None }
+19:40:01.944 [INFO] broot::app::app: cmd_result: Keep
+19:40:01.944 [DEBUG] broot::app::app: display panel took 347.679µs
+19:40:01.944 [DEBUG] broot::kitty::detect_support: is_tmux ?
+19:40:01.944 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
+19:40:01.944 [DEBUG] broot::kitty::detect_support: $TERMINAL = "kitty"
+19:40:01.944 [DEBUG] broot::app::app: pending_tasks took 462ns
+19:40:02.444 [DEBUG] broot::app::app: key combination: Ctrl-j
+19:40:02.445 [DEBUG] broot::command::panel_input: verb for key: :line_down
+19:40:02.445 [DEBUG] broot::app::app: command after add_event: VerbTrigger { verb_id: 8, input_invocation: None }
+19:40:02.445 [DEBUG] broot::browser::browser_state: browser_state on_internal InternalExecution { internal: line_down, bang: false, arg: None }
+19:40:02.445 [INFO] broot::app::app: cmd_result: Keep
+19:40:02.445 [DEBUG] broot::app::app: display panel took 357.165µs
+19:40:02.445 [DEBUG] broot::kitty::detect_support: is_tmux ?
+19:40:02.445 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
+19:40:02.445 [DEBUG] broot::kitty::detect_support: $TERMINAL = "kitty"
+19:40:02.445 [DEBUG] broot::app::app: pending_tasks took 392ns
+19:40:02.478 [DEBUG] broot::app::app: key combination: Ctrl-j
+19:40:02.478 [DEBUG] broot::command::panel_input: verb for key: :line_down
+19:40:02.478 [DEBUG] broot::app::app: command after add_event: VerbTrigger { verb_id: 8, input_invocation: None }
+19:40:02.478 [DEBUG] broot::browser::browser_state: browser_state on_internal InternalExecution { internal: line_down, bang: false, arg: None }
+19:40:02.478 [INFO] broot::app::app: cmd_result: Keep
+19:40:02.479 [DEBUG] broot::app::app: display panel took 350.661µs
+19:40:02.479 [DEBUG] broot::kitty::detect_support: is_tmux ?
+19:40:02.479 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
+19:40:02.479 [DEBUG] broot::kitty::detect_support: $TERMINAL = "kitty"
+19:40:02.479 [DEBUG] broot::app::app: pending_tasks took 500ns
+19:40:02.503 [DEBUG] broot::app::app: key combination: Ctrl-j
+19:40:02.503 [DEBUG] broot::command::panel_input: verb for key: :line_down
+19:40:02.503 [DEBUG] broot::app::app: command after add_event: VerbTrigger { verb_id: 8, input_invocation: None }
+19:40:02.503 [DEBUG] broot::browser::browser_state: browser_state on_internal InternalExecution { internal: line_down, bang: false, arg: None }
+19:40:02.503 [INFO] broot::app::app: cmd_result: Keep
+19:40:02.503 [DEBUG] broot::app::app: display panel took 326.527µs
+19:40:02.503 [DEBUG] broot::kitty::detect_support: is_tmux ?
+19:40:02.503 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
+19:40:02.503 [DEBUG] broot::kitty::detect_support: $TERMINAL = "kitty"
+19:40:02.503 [DEBUG] broot::app::app: pending_tasks took 361ns
+19:40:02.532 [DEBUG] broot::app::app: key combination: Ctrl-j
+19:40:02.532 [DEBUG] broot::command::panel_input: verb for key: :line_down
+19:40:02.532 [DEBUG] broot::app::app: command after add_event: VerbTrigger { verb_id: 8, input_invocation: None }
+19:40:02.532 [DEBUG] broot::browser::browser_state: browser_state on_internal InternalExecution { internal: line_down, bang: false, arg: None }
+19:40:02.532 [INFO] broot::app::app: cmd_result: Keep
+19:40:02.533 [DEBUG] broot::app::app: display panel took 185.749µs
+19:40:02.533 [DEBUG] broot::kitty::detect_support: is_tmux ?
+19:40:02.533 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
+19:40:02.533 [DEBUG] broot::kitty::detect_support: $TERMINAL = "kitty"
+19:40:02.533 [DEBUG] broot::app::app: pending_tasks took 434ns
+19:40:02.563 [DEBUG] broot::app::app: key combination: Ctrl-j
+19:40:02.563 [DEBUG] broot::command::panel_input: verb for key: :line_down
+19:40:02.563 [DEBUG] broot::app::app: command after add_event: VerbTrigger { verb_id: 8, input_invocation: None }
+19:40:02.563 [DEBUG] broot::browser::browser_state: browser_state on_internal InternalExecution { internal: line_down, bang: false, arg: None }
+19:40:02.563 [INFO] broot::app::app: cmd_result: Keep
+19:40:02.563 [DEBUG] broot::app::app: display panel took 173.937µs
+19:40:02.563 [DEBUG] broot::kitty::detect_support: is_tmux ?
+19:40:02.563 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
+19:40:02.563 [DEBUG] broot::kitty::detect_support: $TERMINAL = "kitty"
+19:40:02.563 [DEBUG] broot::app::app: pending_tasks took 413ns
+19:40:02.596 [DEBUG] broot::app::app: key combination: Ctrl-j
+19:40:02.596 [DEBUG] broot::command::panel_input: verb for key: :line_down
+19:40:02.596 [DEBUG] broot::app::app: command after add_event: VerbTrigger { verb_id: 8, input_invocation: None }
+19:40:02.596 [DEBUG] broot::browser::browser_state: browser_state on_internal InternalExecution { internal: line_down, bang: false, arg: None }
+19:40:02.596 [INFO] broot::app::app: cmd_result: Keep
+19:40:02.596 [DEBUG] broot::app::app: display panel took 292.401µs
+19:40:02.596 [DEBUG] broot::kitty::detect_support: is_tmux ?
+19:40:02.596 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
+19:40:02.596 [DEBUG] broot::kitty::detect_support: $TERMINAL = "kitty"
+19:40:02.596 [DEBUG] broot::app::app: pending_tasks took 394ns
+19:40:02.629 [DEBUG] broot::app::app: key combination: Ctrl-j
+19:40:02.629 [DEBUG] broot::command::panel_input: verb for key: :line_down
+19:40:02.629 [DEBUG] broot::app::app: command after add_event: VerbTrigger { verb_id: 8, input_invocation: None }
+19:40:02.629 [DEBUG] broot::browser::browser_state: browser_state on_internal InternalExecution { internal: line_down, bang: false, arg: None }
+19:40:02.629 [INFO] broot::app::app: cmd_result: Keep
+19:40:02.629 [DEBUG] broot::app::app: display panel took 163.728µs
+19:40:02.629 [DEBUG] broot::kitty::detect_support: is_tmux ?
+19:40:02.629 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
+19:40:02.629 [DEBUG] broot::kitty::detect_support: $TERMINAL = "kitty"
+19:40:02.629 [DEBUG] broot::app::app: pending_tasks took 323ns
+19:40:02.661 [DEBUG] broot::app::app: key combination: Ctrl-j
+19:40:02.661 [DEBUG] broot::command::panel_input: verb for key: :line_down
+19:40:02.661 [DEBUG] broot::app::app: command after add_event: VerbTrigger { verb_id: 8, input_invocation: None }
+19:40:02.661 [DEBUG] broot::browser::browser_state: browser_state on_internal InternalExecution { internal: line_down, bang: false, arg: None }
+19:40:02.661 [INFO] broot::app::app: cmd_result: Keep
+19:40:02.662 [DEBUG] broot::app::app: display panel took 256.112µs
+19:40:02.662 [DEBUG] broot::kitty::detect_support: is_tmux ?
+19:40:02.662 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
+19:40:02.662 [DEBUG] broot::kitty::detect_support: $TERMINAL = "kitty"
+19:40:02.662 [DEBUG] broot::app::app: pending_tasks took 405ns
+19:40:02.683 [DEBUG] broot::app::app: key combination: Ctrl-j
+19:40:02.683 [DEBUG] broot::command::panel_input: verb for key: :line_down
+19:40:02.683 [DEBUG] broot::app::app: command after add_event: VerbTrigger { verb_id: 8, input_invocation: None }
+19:40:02.683 [DEBUG] broot::browser::browser_state: browser_state on_internal InternalExecution { internal: line_down, bang: false, arg: None }
+19:40:02.683 [INFO] broot::app::app: cmd_result: Keep
+19:40:02.683 [DEBUG] broot::app::app: display panel took 122.132µs
+19:40:02.683 [DEBUG] broot::kitty::detect_support: is_tmux ?
+19:40:02.683 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
+19:40:02.683 [DEBUG] broot::kitty::detect_support: $TERMINAL = "kitty"
+19:40:02.683 [DEBUG] broot::app::app: pending_tasks took 250ns
+19:40:02.713 [DEBUG] broot::app::app: key combination: Ctrl-j
+19:40:02.713 [DEBUG] broot::command::panel_input: verb for key: :line_down
+19:40:02.713 [DEBUG] broot::app::app: command after add_event: VerbTrigger { verb_id: 8, input_invocation: None }
+19:40:02.713 [DEBUG] broot::browser::browser_state: browser_state on_internal InternalExecution { internal: line_down, bang: false, arg: None }
+19:40:02.713 [INFO] broot::app::app: cmd_result: Keep
+19:40:02.714 [DEBUG] broot::app::app: display panel took 160.554µs
+19:40:02.714 [DEBUG] broot::kitty::detect_support: is_tmux ?
+19:40:02.714 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
+19:40:02.714 [DEBUG] broot::kitty::detect_support: $TERMINAL = "kitty"
+19:40:02.714 [DEBUG] broot::app::app: pending_tasks took 284ns
+19:40:02.744 [DEBUG] broot::app::app: key combination: Ctrl-j
+19:40:02.744 [DEBUG] broot::command::panel_input: verb for key: :line_down
+19:40:02.744 [DEBUG] broot::app::app: command after add_event: VerbTrigger { verb_id: 8, input_invocation: None }
+19:40:02.744 [DEBUG] broot::browser::browser_state: browser_state on_internal InternalExecution { internal: line_down, bang: false, arg: None }
+19:40:02.744 [INFO] broot::app::app: cmd_result: Keep
+19:40:02.744 [DEBUG] broot::app::app: display panel took 323.715µs
+19:40:02.744 [DEBUG] broot::kitty::detect_support: is_tmux ?
+19:40:02.744 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
+19:40:02.744 [DEBUG] broot::kitty::detect_support: $TERMINAL = "kitty"
+19:40:02.744 [DEBUG] broot::app::app: pending_tasks took 361ns
+19:40:02.777 [DEBUG] broot::app::app: key combination: Ctrl-j
+19:40:02.777 [DEBUG] broot::command::panel_input: verb for key: :line_down
+19:40:02.777 [DEBUG] broot::app::app: command after add_event: VerbTrigger { verb_id: 8, input_invocation: None }
+19:40:02.777 [DEBUG] broot::browser::browser_state: browser_state on_internal InternalExecution { internal: line_down, bang: false, arg: None }
+19:40:02.777 [INFO] broot::app::app: cmd_result: Keep
+19:40:02.777 [DEBUG] broot::app::app: display panel took 327.509µs
+19:40:02.777 [DEBUG] broot::kitty::detect_support: is_tmux ?
+19:40:02.777 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
+19:40:02.777 [DEBUG] broot::kitty::detect_support: $TERMINAL = "kitty"
+19:40:02.777 [DEBUG] broot::app::app: pending_tasks took 440ns
+19:40:02.811 [DEBUG] broot::app::app: key combination: Ctrl-j
+19:40:02.811 [DEBUG] broot::command::panel_input: verb for key: :line_down
+19:40:02.811 [DEBUG] broot::app::app: command after add_event: VerbTrigger { verb_id: 8, input_invocation: None }
+19:40:02.811 [DEBUG] broot::browser::browser_state: browser_state on_internal InternalExecution { internal: line_down, bang: false, arg: None }
+19:40:02.811 [INFO] broot::app::app: cmd_result: Keep
+19:40:02.811 [DEBUG] broot::app::app: display panel took 469.672µs
+19:40:02.811 [DEBUG] broot::kitty::detect_support: is_tmux ?
+19:40:02.811 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
+19:40:02.811 [DEBUG] broot::kitty::detect_support: $TERMINAL = "kitty"
+19:40:02.811 [DEBUG] broot::app::app: pending_tasks took 380ns
+19:40:02.834 [DEBUG] broot::app::app: key combination: Ctrl-j
+19:40:02.834 [DEBUG] broot::command::panel_input: verb for key: :line_down
+19:40:02.834 [DEBUG] broot::app::app: command after add_event: VerbTrigger { verb_id: 8, input_invocation: None }
+19:40:02.834 [DEBUG] broot::browser::browser_state: browser_state on_internal InternalExecution { internal: line_down, bang: false, arg: None }
+19:40:02.834 [INFO] broot::app::app: cmd_result: Keep
+19:40:02.834 [DEBUG] broot::app::app: display panel took 274.077µs
+19:40:02.834 [DEBUG] broot::kitty::detect_support: is_tmux ?
+19:40:02.834 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
+19:40:02.834 [DEBUG] broot::kitty::detect_support: $TERMINAL = "kitty"
+19:40:02.834 [DEBUG] broot::app::app: pending_tasks took 340ns
+19:40:02.864 [DEBUG] broot::app::app: key combination: Ctrl-j
+19:40:02.864 [DEBUG] broot::command::panel_input: verb for key: :line_down
+19:40:02.864 [DEBUG] broot::app::app: command after add_event: VerbTrigger { verb_id: 8, input_invocation: None }
+19:40:02.864 [DEBUG] broot::browser::browser_state: browser_state on_internal InternalExecution { internal: line_down, bang: false, arg: None }
+19:40:02.864 [INFO] broot::app::app: cmd_result: Keep
+19:40:02.864 [DEBUG] broot::app::app: display panel took 173.824µs
+19:40:02.864 [DEBUG] broot::kitty::detect_support: is_tmux ?
+19:40:02.864 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
+19:40:02.864 [DEBUG] broot::kitty::detect_support: $TERMINAL = "kitty"
+19:40:02.864 [DEBUG] broot::app::app: pending_tasks took 20.905µs
+19:40:02.894 [DEBUG] broot::app::app: key combination: Ctrl-j
+19:40:02.894 [DEBUG] broot::command::panel_input: verb for key: :line_down
+19:40:02.894 [DEBUG] broot::app::app: command after add_event: VerbTrigger { verb_id: 8, input_invocation: None }
+19:40:02.894 [DEBUG] broot::browser::browser_state: browser_state on_internal InternalExecution { internal: line_down, bang: false, arg: None }
+19:40:02.894 [INFO] broot::app::app: cmd_result: Keep
+19:40:02.895 [DEBUG] broot::app::app: display panel took 172.246µs
+19:40:02.895 [DEBUG] broot::kitty::detect_support: is_tmux ?
+19:40:02.895 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
+19:40:02.895 [DEBUG] broot::kitty::detect_support: $TERMINAL = "kitty"
+19:40:02.895 [DEBUG] broot::app::app: pending_tasks took 325ns
+19:40:02.928 [DEBUG] broot::app::app: key combination: Ctrl-j
+19:40:02.928 [DEBUG] broot::command::panel_input: verb for key: :line_down
+19:40:02.928 [DEBUG] broot::app::app: command after add_event: VerbTrigger { verb_id: 8, input_invocation: None }
+19:40:02.928 [DEBUG] broot::browser::browser_state: browser_state on_internal InternalExecution { internal: line_down, bang: false, arg: None }
+19:40:02.928 [INFO] broot::app::app: cmd_result: Keep
+19:40:02.928 [DEBUG] broot::app::app: display panel took 401.812µs
+19:40:02.928 [DEBUG] broot::kitty::detect_support: is_tmux ?
+19:40:02.928 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
+19:40:02.928 [DEBUG] broot::kitty::detect_support: $TERMINAL = "kitty"
+19:40:02.928 [DEBUG] broot::app::app: pending_tasks took 537ns
+19:40:02.961 [DEBUG] broot::app::app: key combination: Ctrl-j
+19:40:02.961 [DEBUG] broot::command::panel_input: verb for key: :line_down
+19:40:02.961 [DEBUG] broot::app::app: command after add_event: VerbTrigger { verb_id: 8, input_invocation: None }
+19:40:02.961 [DEBUG] broot::browser::browser_state: browser_state on_internal InternalExecution { internal: line_down, bang: false, arg: None }
+19:40:02.961 [INFO] broot::app::app: cmd_result: Keep
+19:40:02.961 [DEBUG] broot::app::app: display panel took 420.663µs
+19:40:02.961 [DEBUG] broot::kitty::detect_support: is_tmux ?
+19:40:02.961 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
+19:40:02.961 [DEBUG] broot::kitty::detect_support: $TERMINAL = "kitty"
+19:40:02.961 [DEBUG] broot::app::app: pending_tasks took 670ns
+19:40:02.984 [DEBUG] broot::app::app: key combination: Ctrl-j
+19:40:02.984 [DEBUG] broot::command::panel_input: verb for key: :line_down
+19:40:02.984 [DEBUG] broot::app::app: command after add_event: VerbTrigger { verb_id: 8, input_invocation: None }
+19:40:02.984 [DEBUG] broot::browser::browser_state: browser_state on_internal InternalExecution { internal: line_down, bang: false, arg: None }
+19:40:02.984 [INFO] broot::app::app: cmd_result: Keep
+19:40:02.984 [DEBUG] broot::app::app: display panel took 160.24µs
+19:40:02.984 [DEBUG] broot::kitty::detect_support: is_tmux ?
+19:40:02.984 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
+19:40:02.984 [DEBUG] broot::kitty::detect_support: $TERMINAL = "kitty"
+19:40:02.984 [DEBUG] broot::app::app: pending_tasks took 350ns
+19:40:03.014 [DEBUG] broot::app::app: key combination: Ctrl-j
+19:40:03.014 [DEBUG] broot::command::panel_input: verb for key: :line_down
+19:40:03.014 [DEBUG] broot::app::app: command after add_event: VerbTrigger { verb_id: 8, input_invocation: None }
+19:40:03.014 [DEBUG] broot::browser::browser_state: browser_state on_internal InternalExecution { internal: line_down, bang: false, arg: None }
+19:40:03.014 [INFO] broot::app::app: cmd_result: Keep
+19:40:03.014 [DEBUG] broot::app::app: display panel took 108.436µs
+19:40:03.014 [DEBUG] broot::kitty::detect_support: is_tmux ?
+19:40:03.014 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
+19:40:03.014 [DEBUG] broot::kitty::detect_support: $TERMINAL = "kitty"
+19:40:03.014 [DEBUG] broot::app::app: pending_tasks took 245ns
+19:40:03.044 [DEBUG] broot::app::app: key combination: Ctrl-j
+19:40:03.044 [DEBUG] broot::command::panel_input: verb for key: :line_down
+19:40:03.045 [DEBUG] broot::app::app: command after add_event: VerbTrigger { verb_id: 8, input_invocation: None }
+19:40:03.045 [DEBUG] broot::browser::browser_state: browser_state on_internal InternalExecution { internal: line_down, bang: false, arg: None }
+19:40:03.045 [INFO] broot::app::app: cmd_result: Keep
+19:40:03.045 [DEBUG] broot::app::app: display panel took 158.897µs
+19:40:03.045 [DEBUG] broot::kitty::detect_support: is_tmux ?
+19:40:03.045 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
+19:40:03.045 [DEBUG] broot::kitty::detect_support: $TERMINAL = "kitty"
+19:40:03.045 [DEBUG] broot::app::app: pending_tasks took 247ns
+19:40:03.078 [DEBUG] broot::app::app: key combination: Ctrl-j
+19:40:03.078 [DEBUG] broot::command::panel_input: verb for key: :line_down
+19:40:03.078 [DEBUG] broot::app::app: command after add_event: VerbTrigger { verb_id: 8, input_invocation: None }
+19:40:03.078 [DEBUG] broot::browser::browser_state: browser_state on_internal InternalExecution { internal: line_down, bang: false, arg: None }
+19:40:03.078 [INFO] broot::app::app: cmd_result: Keep
+19:40:03.078 [DEBUG] broot::app::app: display panel took 306.924µs
+19:40:03.078 [DEBUG] broot::kitty::detect_support: is_tmux ?
+19:40:03.078 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
+19:40:03.078 [DEBUG] broot::kitty::detect_support: $TERMINAL = "kitty"
+19:40:03.078 [DEBUG] broot::app::app: pending_tasks took 472ns
+19:40:04.403 [DEBUG] broot::app::app: key combination: Ctrl-k
+19:40:04.403 [DEBUG] broot::command::panel_input: verb for key: :line_up
+19:40:04.403 [DEBUG] broot::app::app: command after add_event: VerbTrigger { verb_id: 7, input_invocation: None }
+19:40:04.403 [DEBUG] broot::browser::browser_state: browser_state on_internal InternalExecution { internal: line_up, bang: false, arg: None }
+19:40:04.403 [INFO] broot::app::app: cmd_result: Keep
+19:40:04.403 [DEBUG] broot::app::app: display panel took 272.343µs
+19:40:04.403 [DEBUG] broot::kitty::detect_support: is_tmux ?
+19:40:04.403 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
+19:40:04.403 [DEBUG] broot::kitty::detect_support: $TERMINAL = "kitty"
+19:40:04.403 [DEBUG] broot::app::app: pending_tasks took 407ns
+19:40:05.083 [DEBUG] broot::app::app: key combination: Enter
+19:40:05.083 [DEBUG] broot::command::panel_input: verb for key: :open_stay
+19:40:05.083 [DEBUG] broot::app::app: command after add_event: VerbTrigger { verb_id: 73, input_invocation: None }
+19:40:05.083 [DEBUG] broot::browser::browser_state: browser_state on_internal InternalExecution { internal: open_stay, bang: false, arg: None }
+19:40:05.083 [DEBUG] broot::tree_build::builder: Ignorer::default() took 21ns
+19:40:05.083 [DEBUG] broot::tree_build::builder: blines before trimming: 10
+19:40:05.083 [INFO] broot::app::app: cmd_result: NewState
+19:40:05.083 [DEBUG] broot::app::app: display panel took 84.033µs
+19:40:05.083 [DEBUG] broot::kitty::detect_support: is_tmux ?
+19:40:05.083 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
+19:40:05.083 [DEBUG] broot::kitty::detect_support: $TERMINAL = "kitty"
+19:40:05.083 [DEBUG] broot::app::app: pending_tasks took 325ns
+19:40:09.041 [DEBUG] broot::app::app: key combination: Esc
+19:40:09.041 [DEBUG] broot::command::panel_input: verb for key: :escape
+19:40:09.041 [DEBUG] broot::app::app: command after add_event: Internal { internal: back, input_invocation: None }
+19:40:09.041 [DEBUG] broot::browser::browser_state: browser_state on_internal InternalExecution { internal: back, bang: false, arg: None }
+19:40:09.041 [INFO] broot::app::app: cmd_result: PopState
+19:40:09.041 [DEBUG] broot::tree_build::builder: Ignorer::default() took 17ns
+19:40:09.041 [DEBUG] broot::tree_build::builder: blines before trimming: 34
+19:40:09.042 [DEBUG] broot::app::app: display panel took 317.875µs
+19:40:09.042 [DEBUG] broot::kitty::detect_support: is_tmux ?
+19:40:09.042 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
+19:40:09.042 [DEBUG] broot::kitty::detect_support: $TERMINAL = "kitty"
+19:40:09.042 [DEBUG] broot::app::app: pending_tasks took 474ns
+19:40:09.689 [DEBUG] broot::app::app: key combination: Esc
+19:40:09.690 [DEBUG] broot::command::panel_input: verb for key: :escape
+19:40:09.690 [DEBUG] broot::app::app: command after add_event: Internal { internal: back, input_invocation: None }
+19:40:09.690 [DEBUG] broot::browser::browser_state: browser_state on_internal InternalExecution { internal: back, bang: false, arg: None }
+19:40:09.690 [INFO] broot::app::app: cmd_result: Keep
+19:40:09.690 [DEBUG] broot::app::app: display panel took 329.123µs
+19:40:09.690 [DEBUG] broot::kitty::detect_support: is_tmux ?
+19:40:09.690 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
+19:40:09.690 [DEBUG] broot::kitty::detect_support: $TERMINAL = "kitty"
+19:40:09.690 [DEBUG] broot::app::app: pending_tasks took 439ns
+19:40:10.207 [DEBUG] broot::app::app: key combination: Esc
+19:40:10.207 [DEBUG] broot::command::panel_input: verb for key: :escape
+19:40:10.207 [DEBUG] broot::app::app: command after add_event: Internal { internal: back, input_invocation: None }
+19:40:10.207 [DEBUG] broot::browser::browser_state: browser_state on_internal InternalExecution { internal: back, bang: false, arg: None }
+19:40:10.207 [INFO] broot::app::app: cmd_result: PopState
+19:40:10.207 [DEBUG] broot::task_sync: dead dam
+19:40:10.207 [DEBUG] broot::kitty::detect_support: is_tmux ?
+19:40:10.207 [DEBUG] broot::kitty::detect_support: $TERM = "xterm-256color"
+19:40:10.207 [DEBUG] broot::kitty::detect_support: $TERMINAL = "kitty"
+19:40:10.207 [INFO] broot::cli: clearing resources
+19:40:10.207 [INFO] broot::watcher: notify sender disconnected, stopping notify watcher thread
+19:40:10.207 [INFO] cli_log::mem: Physical mem usage: current=20M, peak=238M
+19:40:10.207 [INFO] broot: bye

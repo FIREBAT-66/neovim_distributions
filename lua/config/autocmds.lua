@@ -1,5 +1,11 @@
 local api = vim.api
 
+local opt = vim.opt
+local cmd = vim.cmd
+local api = vim.api
+local nvim_create_autocmd = api.nvim_create_autocmd
+local nvim_set_hl = api.nvim_set_hl
+
 -- don't auto comment new line
 api.nvim_create_autocmd("BufEnter", { command = [[set formatoptions-=cro]] })
 
@@ -191,3 +197,114 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 
+vim.api.nvim_create_autocmd("TermClose", {
+  callback = function()
+    local buf = vim.api.nvim_get_current_buf()
+    local name = vim.fn.bufname(buf)
+
+    if name:match("broot") then
+      -- Switch to alternate buffer if possible
+      local alt = vim.fn.bufnr("#")
+      if alt ~= -1 and vim.api.nvim_buf_is_valid(alt) then
+        vim.cmd("buffer #")
+      else
+        -- fallback: open a new empty buffer instead
+        vim.cmd("enew")
+      end
+
+      -- Now safely delete the broot terminal buffer
+      vim.schedule(function()
+        pcall(vim.cmd, "bd! " .. buf)
+      end)
+    end
+  end,
+})
+
+nvim_create_autocmd = api.nvim_create_autocmd
+
+nvim_create_autocmd("InsertEnter", {
+	callback = function()
+		opt.listchars.trail = nil
+		nvim_set_hl(0, "TrailingWhitespace", { link = "Whitespace" })
+	end
+})
+
+nvim_create_autocmd("InsertLeave", {
+	callback = function()
+		opt.listchars.trail = space
+		nvim_set_hl(0, "TrailingWhitespace", { link = "Error" })
+	end
+})
+
+vim.api.nvim_create_autocmd('BufEnter', {
+  callback = function()
+    vim.bo.shiftwidth = 2
+    vim.bo.tabstop = 2
+    vim.bo.softtabstop = 2											  
+  end
+})
+
+-- Create an Autocmd Group to keep your autocommands organized
+vim.api.nvim_create_augroup("ChangeCWD", { clear = true })
+
+-- Set the working directory to the current buffer's file path on switch, 
+-- but only for file buffers (not terminal or scratch buffers)
+vim.api.nvim_create_autocmd({ "BufEnter", "WinEnter" }, {
+  group = "ChangeCWD",
+  callback = function()
+    local buffer_name = vim.api.nvim_buf_get_name(0)
+
+    -- Check if the buffer is a file buffer (has a path and is not a terminal buffer)
+    -- 'term://' is the filetype for Neovim's built-in terminal
+    -- 'buftype' being 'terminal' is another check for terminal buffers
+    -- The checks ensure it's a regular file buffer with a name
+    if buffer_name ~= "" and vim.bo.buftype ~= "terminal" then
+      -- Get the directory of the current buffer's file
+      -- %:p:h expands to the full path of the file, then removes the file name (head)
+      local dir = vim.fn.fnamemodify(buffer_name, ":h")
+      
+      -- Use :lcd (local change directory) to change the directory for the current window only
+      if dir ~= "" then
+        vim.cmd("lcd " .. dir)
+      end
+    end
+  end,
+})
+
+
+
+
+-- Optional: For new empty buffers, you might want to switch back to the global CWD
+-- or the home directory. The use of 'lcd' means the window keeps its CWD 
+-- even when switching to a new *empty* buffer (which has no name/path).
+-- This command will revert the window's CWD to the global CWD if it's an unlisted,
+-- unnamed buffer (like a new, unsaved buffer).
+vim.api.nvim_create_autocmd("BufEnter", {
+  group = "ChangeCWD",
+  pattern = { "" }, -- Matches unnamed buffers
+  callback = function()
+    -- Only do this if the buffer has no name and is not a terminal
+    if vim.bo.buftype == "" and vim.api.nvim_buf_get_name(0) == "" then
+      vim.cmd("lcd " .. vim.fn.getcwd(-1, -1)) -- Revert to global CWD
+    end
+  end,
+})
+
+
+
+-- Automatically enter insert mode in terminal buffers (used primarily for entering broot commands)
+vim.api.nvim_create_autocmd("TermOpen", {
+  pattern = "*",
+  callback = function()
+    vim.cmd("startinsert")
+  end,
+})
+
+-- Automatically close terminal buffers when the job exits, which prevents you from having to manually close them by pressing any key
+vim.api.nvim_create_autocmd("BufLeave", {
+  callback = function()
+    if vim.bo.buftype == "terminal" and vim.fn.bufname():match("broot") then
+      vim.cmd("bd!") -- close the buffer
+    end
+  end,
+})

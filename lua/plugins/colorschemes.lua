@@ -104,7 +104,7 @@ return {
       vim.api.nvim_set_hl(0, 'Normal', { fg = '#FF6000', bg = 'none' })
       -- vim.api.nvim_set_hl(0, 'CursorLine', { fg = 'none', bg = '#2b2b2b', blend = 5 })
       vim.api.nvim_set_hl(0, 'CursorLine', { fg = 'none', bg = '#2b2b2b'})
-      vim.api.nvim_set_hl(0, 'Visual', { fg = '#2b2b2b', bg = '#ff6000' })
+      vim.api.nvim_set_hl(0, 'Visual', { fg = '#2b2b2b', bg = '#80401a'})
       vim.api.nvim_set_hl(0, 'MiniStatusLineModeNormal', { fg = '#ff6000', bg = '#80401a' })
       vim.api.nvim_set_hl(0, 'NoiceCmdLinePopupBorder', { fg = '#ff6000', bg = 'none' })
       vim.api.nvim_set_hl(0, 'SnacksPickerListCursorLine', { fg = '#ff6000', bg = '#80401a' })

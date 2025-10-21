@@ -1,5 +1,6 @@
 return {
     {
+        lazy = false,
         "nvim-treesitter/nvim-treesitter",
         version = false,
         build = ":TSUpdate",
@@ -52,10 +53,10 @@ return {
                 incremental_selection = {
                     enable = true,
                     keymaps = {
-                        init_selection = "<C-i>",
-                        node_incremental = "<C-i>",
+                        init_selection = "<CR>",
+                        node_incremental = "<CR>",
                         scope_incremental = false,
-                        node_decremental = "<Backspace>",
+                        node_decremental = "<BS>",
                     },
                 },
                 textobjects = {
